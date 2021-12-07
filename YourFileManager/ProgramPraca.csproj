@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>ProgramPraca</AssemblyName>
+    <RootNamespace>ProgramPraca</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="OknaMain\**" />
+    <EmbeddedResource Remove="OknaMain\**" />
+    <None Remove="OknaMain\**" />
+    <Page Remove="OknaMain\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="MySql.Data" Version="8.0.27" />
+  </ItemGroup>
+
+</Project>

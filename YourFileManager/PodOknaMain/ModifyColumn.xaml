@@ -1,0 +1,25 @@
+﻿<Window x:Class="ProgramPraca.PodOknaMain.ModifyColumn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProgramPraca.PodOknaMain"
+        mc:Ignorable="d"
+        Title="ModifyColumn" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Roboto Medium" FontSize="48" RenderTransformOrigin="0.546,0.612" Height="60" Foreground="White" Text="Modyfikuj Kolumnę&#xA;" IsEnabled="False" Background="#FF87BC5E" Width="504" FontStretch="Normal" FlowDirection="LeftToRight" Padding="0,0,0,0" UseLayoutRounding="True" TextAlignment="Center"/>
+
+        <Label Content="Wybierz Kolmunę:" HorizontalAlignment="Left" Margin="38,153,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="ComboboxColumn" HorizontalAlignment="Left" Margin="149,155,0,0" VerticalAlignment="Top" Width="200" DropDownClosed="OnColumnSelect"/>
+
+        <Label Content="Typ Kolumny:" HorizontalAlignment="Left" Margin="38,199,0,0" VerticalAlignment="Top" Width="106"/>
+        <ComboBox Name="ComboBoxColumnType" HorizontalAlignment="Left" Margin="149,201,0,0" VerticalAlignment="Top" Width="200" DropDownClosed="CheckIfEnumEvent"/>
+        <Button Content="Modyfikuj kolumnę" HorizontalAlignment="Left" Margin="99,323,0,0" VerticalAlignment="Top" Panel.ZIndex="6" Background="White" BorderBrush="#FFAEAEAE" Width="250" Height="30" UseLayoutRounding="True" Foreground="#FF87BC5E" ClickMode="Release" FontSize="16" Click="SetNewColumnParams"/>
+        <TextBox HorizontalAlignment="Left" Margin="459,323,0,0" Text="Podaj wartość pola wyboru" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Height="30" FontSize="16" Name="TextBoxEnumValue"/>
+        <ListBox Name="ListBoxEnumValues" Margin="466,125,114,136"/>
+        <Button Name="ButtonEnumValueAdd" Content="+" HorizontalAlignment="Left" Margin="709,323,0,0" VerticalAlignment="Top" Panel.ZIndex="6" Background="White" BorderBrush="#FFAEAEAE" Width="30" Height="30" UseLayoutRounding="True" Foreground="#FF87BC5E" ClickMode="Release" FontSize="24" Click="AddNewEnumValue" FontFamily="Arial Black"/>
+        <Button Name="ButtonEnumValueRemove" Content="-" HorizontalAlignment="Left" Margin="709,125,0,0" VerticalAlignment="Top" Panel.ZIndex="6" Background="White" BorderBrush="#FFAEAEAE" Width="30" Height="30" UseLayoutRounding="True" Foreground="#FF87BC5E" ClickMode="Release" FontSize="22" Click="DeleteEnumValue" FontFamily="Arial Black"/>
+        <CheckBox Content="Przyjmuje puste wartości" Name="CheckBoxIsNULL" HorizontalAlignment="Left" Margin="149,242,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,5 @@
+SERVER = 127.0.0.1
+USERNAME = Saldo
+PASSWORD = Saldo!@#
+DATABASE = saldo
+TABLE = klienci
