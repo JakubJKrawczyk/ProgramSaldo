@@ -36,5 +36,12 @@ namespace ProgramPraca
             W.Show();
             Close();
         }
+
+        private void DellColumn(object sender, RoutedEventArgs e)
+        {
+            PodOknaMain.DellColumn W = new();
+            W.Show();
+            Close();
+        }
     }
 }

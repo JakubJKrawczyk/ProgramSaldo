@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +22,6 @@ namespace ProgramPraca.PodOknaMain
     /// </summary>
     public partial class AddUser : Window
     {
-        public ConnectDataBase manager = new();
         public AddUser()
         {
             InitializeComponent();
@@ -29,23 +30,22 @@ namespace ProgramPraca.PodOknaMain
 
         private void SaveUser(object sender, RoutedEventArgs e)
         {
-            manager.MakeConnection();
-            MySqlCommand cmd = new();
-            cmd.Connection = manager.Connection;
-            object selectedItem = EnumNewType.SelectedItem;
-            string selected = selectedItem.ToString().Split(":")[1].Trim();
-            cmd.CommandText = $"Insert Into user(Login,Haslo,Typ) Values('{TextNewUsername.Text}','{TextNewPassword.Text}','{selected}')";
-            MessageBox.Show(cmd.CommandText);
-            cmd.Connection.Open();
-            try
-            {
-                cmd.ExecuteNonQuery();
-            }catch(Exception ex)
-            {
-                MessageBox.Show($"Error: \n\n {ex.Message}");
-            }
-            cmd.Connection.Close();
+            
+            
+            UserModel newUser = new();
+            newUser.UserId = ObjectId.GenerateNewId();
+            newUser.UserLogin = TextNewUsername.Text;
+            newUser.UserPassword = TextNewPassword.Text;
+            
+            newUser.UserType = EnumNewType.SelectedItem.ToString();
+            IMongoCollection<BsonDocument> users = MongoDb.Database.GetCollection<BsonDocument>("user");
+
+            users.InsertOne(newUser.ToBsonDocument());
+            MessageBox.Show($"Sukces! Dodałeś nowego użytkownika! \nOto jego dane:\n{newUser.ToJson()}");
             Close();
+
+            
         }
+        
     }
 }

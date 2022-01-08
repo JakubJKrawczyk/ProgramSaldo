@@ -1,11 +1,13 @@
 ﻿
-using MySql.Data.MySqlClient;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
-
+using System.Windows.Input;
+using System.Linq;
 namespace ProgramPraca
 {
     /// <summary>
@@ -14,23 +16,24 @@ namespace ProgramPraca
     public partial class Main : Window
     {
         public static List<string> columns = new();
-        private static DataGrid dt = new();
+        public   static DataGrid dt = new();
 
         public Main()
         {
             InitializeComponent();
             dt = dtGrid;
-            if (User.Type != "administrator")
+
+           if (UserHolder.User.UserType != "administrator")
             {
                 But1.Visibility = Visibility.Hidden;
                 But2.Visibility = Visibility.Hidden;
 
             }
-            ConnectDataBase manager = new ConnectDataBase();
-            manager.MakeConnection();
+      
+            
             try
             {
-                manager.FillDataGrid(dt);
+                MongoDb.FillDataGrid(dt);
 
             }
             catch (Exception e)
@@ -41,23 +44,27 @@ namespace ProgramPraca
 
             }
 
+            
+            
 
         }
-        private void RefreshData()
+
+
+
+
+        //Windows Section
+
+        private void ColumnManager(object sender, RoutedEventArgs e)
         {
-            ConnectDataBase manager = new();
-            manager.MakeConnection();
-            manager.FillDataGrid(dt);
+            ColumnManager w = new();
+            w.Show();
         }
-        private void AddUser(object sender, RoutedEventArgs e)
+
+        private void UserManager(object sender, RoutedEventArgs e)
         {
-            PodOknaMain.AddUser W = new();
-            W.Show();
+            UserManager w = new();
+            w.Show();
         }
-
-        
-
-        
 
         private void FiltrData(object sender, RoutedEventArgs e)
         {
@@ -69,64 +76,110 @@ namespace ProgramPraca
 
         private void ChangeData(object sender, DataGridCellEditEndingEventArgs e)
         {
-            ConnectDataBase manager = new();
-            DataGrid dt = sender as DataGrid;
             DataRowView row = (DataRowView)dt.SelectedItem;
-            MySqlCommand cmd = new();
-
-            if (e.Column.GetType().Name == "DataGridCheckBoxColumn")
+            
+           
+            var collection = MongoDb.Database.GetCollection<BsonDocument>("klienci");
+            
+            if(row[0].ToString() == "")
             {
-                CheckBox t = e.EditingElement as CheckBox;
-                cmd.CommandText = $"UPDATE klienci SET {e.Column.Header} = {t.IsChecked} WHERE KlientID = {row[0]};";
+                ObjectId newId = new ObjectId();
+                newId = ObjectId.GenerateNewId();
+                BsonDocument newDoc = new();
+                newDoc.Add("_id", newId);
+                TextBox value = e.EditingElement as TextBox;
+                newDoc.Add(e.Column.Header.ToString(), value.Text);
+                newDoc.Add("count", 1);
+                collection.InsertOne(newDoc);
             }
             else
             {
-                TextBox t = e.EditingElement as TextBox;
-                if (manager.CheckIfColumnHasAttributeNULL(e.Column.Header.ToString()) && t.Text is "")
+                ObjectId id = new ObjectId(row[0].ToString());
+            
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+
+                BsonDocument rowToUpdate = collection.Find(filter).Single();
+                if (!rowToUpdate.Contains(e.Column.Header.ToString()))
                 {
-                    MessageBox.Show($"kolumna {e.Column.Header} nie przyjmuje pustych wartości");
-                    return;
+                    MongoDb.changeCount(filter, true, collection);
+
                 }
-                cmd.CommandText = $"UPDATE klienci SET {e.Column.Header} = '{t.Text}' WHERE KlientID = {row[0]}";
+                TextBox value = e.EditingElement as TextBox;
+                UpdateDefinition<BsonDocument> update = null;
+                if(value.Text == "")
+                {
+                    update = Builders<BsonDocument>.Update.Unset(e.Column.Header.ToString());
+                    MongoDb.changeCount(filter, false, collection);
+
+                }
+                else
+                {
+                    update = Builders<BsonDocument>.Update.Set(e.Column.Header.ToString(), value.Text);
+                }
+            
+                collection.UpdateOne(filter, update);
+
 
             }
 
+            
 
-            manager.MakeConnection();
-            cmd.Connection = manager.Connection;
-            cmd.Connection.Open();
-
-            try
-            {
-                cmd.ExecuteNonQuery();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error:\n\n{ex.Message}");
-            }
-
-            cmd.Connection.Close();
         }
 
-        private void SetColumnReadOnlyAndAddColumnsToList(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        public static void FillListOfColumns()
         {
-            columns.Add(e.Column.Header.ToString());
-            if (e.Column.Header.ToString() == "KlientID")
+            columns.Clear();
+            foreach( var column in dt.Columns)
+            {
+                if (column.Header.ToString() == "count" || column.Header.ToString() == "id" || column.Header.ToString() == "_id") continue;
+                columns.Add(column.Header.ToString());
+            }
+        }
+        private void SetColumnsReadOnly(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            
+            
+            if (e.Column.Header.ToString() == "_id")
             {
                 e.Column.IsReadOnly = true;
+            }else if (e.Column.Header.ToString() == "count")
+            {
+                e.Column.Visibility = Visibility.Hidden;
+            }
+            
+        }
+
+       
+
+       
+
+        private void Window_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                MongoDb.FillDataGrid(dt);
             }
         }
 
-        private void Refresh(object sender, RoutedEventArgs e)
+        private void dtGrid_AutoGeneratedColumns(object sender, EventArgs e)
         {
-            RefreshData();
+            FillListOfColumns();
         }
 
-        private void ColumnManager(object sender, RoutedEventArgs e)
+     
+
+        
+
+        private void dtGrid_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            ColumnManager w = new();
-            w.Show();
+            if(Key.Delete == e.Key)
+            {
+                DataRowView row = dt.SelectedItem as DataRowView;
+                IMongoCollection<BsonDocument> collection = MongoDb.Database.GetCollection<BsonDocument>("klienci");
+                FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq("_id", row.Row[0].ToString());
+                collection.DeleteOne(filter);
+                MongoDb.FillDataGrid(dt);
+            }
         }
     }
 }

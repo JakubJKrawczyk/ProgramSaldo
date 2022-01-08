@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using System.Windows;
 
 namespace ProgramPraca.PodOknaMain
 {
@@ -10,6 +12,19 @@ namespace ProgramPraca.PodOknaMain
         public AddColumn()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            IMongoCollection<BsonDocument> collection = MongoDb.Database.GetCollection<BsonDocument>("klienci");
+
+            UpdateDefinition<BsonDocument> update = Builders<BsonDocument>.Update.Set(TextBoxColumnName.Text, "");
+            
+            collection.UpdateMany($"{{}}", update);
+            MongoDb.changeCount($"{{}}", true, collection);
+            MongoDb.FillDataGrid(Main.dt);
+            Main.FillListOfColumns();
+            Close();
         }
     }
 }

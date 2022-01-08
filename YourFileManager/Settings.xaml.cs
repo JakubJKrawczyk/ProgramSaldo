@@ -14,11 +14,11 @@ namespace ProgramPraca
         {
             InitializeComponent();
 
-            TextHostProp.Text = ConnectDataBase.Server;
-            TextUserProp.Text = ConnectDataBase.User;
-            TextPasswdProp.Text = ConnectDataBase.Password;
-            TextDatabaseProp.Text = ConnectDataBase.DataBase;
-            TextDatatableProp.Text = ConnectDataBase.Table;
+            TextHostProp.Text = MongoDb.ServerName;
+            TextUserProp.Text = MongoDb.UserName;
+            TextPasswdProp.Text = MongoDb.Password;
+            TextDatabaseProp.Text = MongoDb.DataBaseName;
+            TextDatatableProp.Text = MongoDb.CollectionName;
         }
 
         private void ZapiszUstawienia(object sender, RoutedEventArgs e)
@@ -26,7 +26,7 @@ namespace ProgramPraca
            
             File.WriteAllText("ConnectionSettings.txt",$"SERVER = {TextHostProp.Text}\n"+
             $"USERNAME = {TextUserProp.Text}\nPASSWORD = {TextPasswdProp.Text}\nDATABASE = {TextDatabaseProp.Text}\nTABLE = {TextDatatableProp.Text}");
-            ConnectDataBase.LoadSettings();
+            MongoDb.LoadConnectionSettings();
             Close();
         }
     }

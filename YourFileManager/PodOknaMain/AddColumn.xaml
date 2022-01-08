@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgramPraca.PodOknaMain"
         mc:Ignorable="d"
-        Title="AddColumn" Height="450" Width="800">
+        Title="AddColumn" Height="242" Width="550">
     <Grid>
-        
+        <TextBlock HorizontalAlignment="Left" Margin="23,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Roboto Medium" FontSize="48" RenderTransformOrigin="0.546,0.612" Height="60" Foreground="White" Text="Dodaj Kolumnę&#xA;" IsEnabled="False" Background="#FF87BC5E" Width="504" FontStretch="Normal" FlowDirection="LeftToRight" Padding="0,0,0,0" UseLayoutRounding="True" TextAlignment="Center"/>
+        <Button Name="Button1" Content="Dodaj kolumnę" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Panel.ZIndex="6" Background="White" BorderBrush="#FFAEAEAE" Width="250" Height="30" UseLayoutRounding="True" Foreground="#FF87BC5E" ClickMode="Release" FontSize="16" Click="Button_Click"/>
+        <TextBlock Name="TextBlockColumnName" HorizontalAlignment="Left" Margin="144,92,0,0" Text="Nazwa: " TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Width="66" FontSize="16" RenderTransformOrigin="0.561,0.691"/>
+        <TextBox Name="TextBoxColumnName" HorizontalAlignment="Left" Margin="215,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="22"/>
+
     </Grid>
 </Window>

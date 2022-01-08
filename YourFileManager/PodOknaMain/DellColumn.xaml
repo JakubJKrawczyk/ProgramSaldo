@@ -1,0 +1,17 @@
+﻿<Window x:Class="ProgramPraca.PodOknaMain.DellColumn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProgramPraca.PodOknaMain"
+        mc:Ignorable="d"
+        Title="DellColumn" Height="300" Width="550">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Roboto Medium" FontSize="48" RenderTransformOrigin="0.546,0.612" Height="60" Foreground="White" Text="Usuń Kolumnę&#xA;" IsEnabled="False" Background="#FF87BC5E" Width="504" FontStretch="Normal" FlowDirection="LeftToRight" Padding="0,0,0,0" UseLayoutRounding="True" TextAlignment="Center"/>
+        <Label Content="Wybierz Kolmunę:" HorizontalAlignment="Left" Margin="115,101,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="ComboboxColumn" HorizontalAlignment="Left" Margin="226,103,0,0" VerticalAlignment="Top" Width="200"/>
+        <Button Content="Usuń kolumnę" HorizontalAlignment="Center" Margin="0,180,0,0" VerticalAlignment="Top" Panel.ZIndex="6" Background="White" BorderBrush="#FFAEAEAE" Width="250" Height="30" UseLayoutRounding="True" Foreground="#FF87BC5E" ClickMode="Release" FontSize="16" Click="Button_Click"/>
+        
+
+    </Grid>
+</Window>

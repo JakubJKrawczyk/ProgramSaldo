@@ -6,10 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using ProgramPraca.Domain;
 namespace ProgramPraca.Data
+    
 {
-    class ClientsDbContext : DbContext
+    class UsersDbContext : DbContext
     {
-        
+        List<User> users = new();
     }
 }

@@ -1,71 +1,80 @@
-﻿using System.Data;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using Newtonsoft.Json;
+using System.Data;
 using System.Windows;
 using System.Windows.Input;
 namespace ProgramPraca
+
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class Login : Window
     {
-        ConnectDataBase manager = new ConnectDataBase();
-
         public object Keys { get; private set; }
 
         public Login()
         {
             InitializeComponent();
-            manager.MakeConnection();
+            
             TextLogin.Text = "";
             TextPassword.Password = "";
 
-            
         }
 
         private void login(object sender, RoutedEventArgs e)
         {
             string login = TextLogin.Text.Trim();
             string haslo = TextPassword.Password.Trim();
-            if (login=="" || haslo== "")
+            if (login == "" || haslo == "")
             {
                 MessageBox.Show("Pola Login i Hasło nie mogą być puste!");
                 return;
             }
-            manager.MakeConnection();
-            DataTable UserTable = new();
-            UserTable = manager.GetDataFromQuerry($"SELECT UserID, Login, Typ from user WHERE Login = '{TextLogin.Text.Trim()}' AND Haslo = '{TextPassword.Password.Trim()}'");
-            if (UserTable != null)
+
+
+            //Nowy Sposób MongoDB
+
+            MongoDb.MakeConnection();
+            FilterDefinition<UserModel> Filter = Builders<UserModel>.Filter.Eq(a => a.UserLogin, login);
+
+            var userCollection = MongoDb.Database.GetCollection<UserModel>("user");
+
+            UserHolder.User = userCollection.Find(Filter).SingleOrDefault();
+
+            if (UserHolder.User != null)
             {
-                if (UserTable.Rows.Count == 0)
+                if (UserHolder.User.UserPassword == haslo)
                 {
-                    MessageBox.Show("Zły login lub hasło!");
+
+
+                    Main appWindow = new();
+
+                    appWindow.Show();
+                    this.Close();
                 }
                 else
                 {
-                    DataRow Row = UserTable.Rows[0];
-                    
-                    User.Username = Row[1].ToString();
-                    User.Type = Row[2].ToString();
-                    
-                    
-                    var appWindow = new Main();
-                    
-                    appWindow.Show();
-                    this.Close();
-                    
-                    
+                    MessageBox.Show("Zły login lub hasło!");
+                    return;
                 }
             }
             else
             {
                 return;
             }
-            
+
+
+
+
+
+
         }
 
         private void KeyDownE(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Enter)
+            if (e.Key == Key.Enter)
             {
                 login(sender, e);
             }
@@ -77,5 +86,7 @@ namespace ProgramPraca
             oknoUstawien.Owner = this;
             oknoUstawien.Show();
         }
+
+        
     }
 }

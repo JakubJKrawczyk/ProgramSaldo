@@ -7,7 +7,16 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="PodOknaMain\DellColumn.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PodOknaMain\DellUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Settings.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -15,7 +24,16 @@
     <Page Update="Login.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="PodOknaMain\DellColumn.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PodOknaMain\DellUser.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Settings.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserManager.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

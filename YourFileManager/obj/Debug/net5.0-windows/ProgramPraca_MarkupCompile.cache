@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\user\source\repos\YourFileManager\YourFileManager\App.xaml
-8-716486920
-
-121831671864
-201-1962820383
-ColumnManager.xaml;Login.xaml;Main.xaml;PodOknaMain\AddColumn.xaml;PodOknaMain\AddUser.xaml;PodOknaMain\Filtr.xaml;PodOknaMain\ModifyColumn.xaml;Settings.xaml;
+111927904415
+211386080733
+16384575140
+210-677821459
+ColumnManager.xaml;Login.xaml;Main.xaml;PodOknaMain\AddColumn.xaml;PodOknaMain\AddUser.xaml;PodOknaMain\DellColumn.xaml;PodOknaMain\DellUser.xaml;PodOknaMain\Filtr.xaml;PodOknaMain\ModifyColumn.xaml;Settings.xaml;UserManager.xaml;
 
 False
 

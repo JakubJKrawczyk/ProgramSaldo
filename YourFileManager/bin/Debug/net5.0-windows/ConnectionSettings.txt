@@ -1,5 +1,5 @@
-SERVER = 127.0.0.1
+SERVER = localhost
 USERNAME = Saldo
 PASSWORD = Saldo!@#
-DATABASE = saldo
+DATABASE = ProgramSaldo
 TABLE = klienci

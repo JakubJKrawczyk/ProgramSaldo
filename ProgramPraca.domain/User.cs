@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProgramPraca
+namespace ProgramPraca.Domain
 {
-    
-
     public class User
     {
-        public static string Username { get; set; }
-        public static string Type { get; set; }
+        public int Id { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
     }
 }

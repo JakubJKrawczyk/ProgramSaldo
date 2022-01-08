@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("ProgramPraca.domain")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("ProgramPraca.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("ProgramPraca.domain")]
-[assembly: System.Reflection.AssemblyTitleAttribute("ProgramPraca.domain")]
+[assembly: System.Reflection.AssemblyProductAttribute("ProgramPraca.Domain")]
+[assembly: System.Reflection.AssemblyTitleAttribute("ProgramPraca.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Wygenerowane przez klasę WriteCodeFragment programu MSBuild.
