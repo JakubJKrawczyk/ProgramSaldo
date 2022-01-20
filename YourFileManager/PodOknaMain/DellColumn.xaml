@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgramPraca.PodOknaMain"
         mc:Ignorable="d"
-        Title="DellColumn" Height="300" Width="550">
+        Title="DellColumn" Height="300" Width="550" ResizeMode="NoResize">
     <Grid>
         <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Roboto Medium" FontSize="48" RenderTransformOrigin="0.546,0.612" Height="60" Foreground="White" Text="Usuń Kolumnę&#xA;" IsEnabled="False" Background="#FF87BC5E" Width="504" FontStretch="Normal" FlowDirection="LeftToRight" Padding="0,0,0,0" UseLayoutRounding="True" TextAlignment="Center"/>
         <Label Content="Wybierz Kolmunę:" HorizontalAlignment="Left" Margin="115,101,0,0" VerticalAlignment="Top"/>

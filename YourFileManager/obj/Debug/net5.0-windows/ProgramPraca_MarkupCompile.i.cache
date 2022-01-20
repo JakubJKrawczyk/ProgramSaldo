@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\user\source\repos\YourFileManager\YourFileManager\App.xaml
-111927904415
+131954624841
 211386080733
-18-416311353
-210-677821459
-ColumnManager.xaml;Login.xaml;Main.xaml;PodOknaMain\AddColumn.xaml;PodOknaMain\AddUser.xaml;PodOknaMain\DellColumn.xaml;PodOknaMain\DellUser.xaml;PodOknaMain\Filtr.xaml;PodOknaMain\ModifyColumn.xaml;Settings.xaml;UserManager.xaml;
+21-1913040978
+2111363211039
+ColumnManager.xaml;Login.xaml;Main.xaml;MyAccount.xaml;PodOknaMain\AddColumn.xaml;PodOknaMain\AddUser.xaml;PodOknaMain\DellColumn.xaml;PodOknaMain\DellUser.xaml;PodOknaMain\Filtr.xaml;PodOknaMain\ModifyColumn.xaml;PodOknaMain\PopUpAskCreateCollection.xaml;Settings.xaml;UserManager.xaml;
 
 True
 

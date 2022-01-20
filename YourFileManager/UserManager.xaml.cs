@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +35,28 @@ namespace ProgramPraca
         private void DellUser(object sender, RoutedEventArgs e)
         {
             PodOknaMain.DellUser w = new();
+            w.Show();
+        }
+
+        private void ShowUsers(object sender, RoutedEventArgs e)
+        {
+            Window w = new();
+            w.Height = 200;
+            w.Width = 200;
+            w.ResizeMode = ResizeMode.NoResize;
+            ListBox dg = new();
+            dg.Height = 200;
+            dg.Width = 200;
+            
+            var users = Mongo.Database.GetCollection<BsonDocument>("user");
+            List<BsonDocument> docs = users.Find($"{{}}").ToList();
+            foreach(var doc in docs)
+            {
+                dg.Items.Add(doc.GetValue("Login", ""));
+            }
+            w.Content = dg;
+
+            
             w.Show();
         }
     }

@@ -46,10 +46,6 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "dependencies": {
-            "Dapper": {
-              "target": "Package",
-              "version": "[2.0.123, )"
-            },
             "MongoDB.Bson": {
               "target": "Package",
               "version": "[2.14.1, )"
@@ -62,10 +58,6 @@
               "target": "Package",
               "version": "[2.14.1, )"
             },
-            "MySql.Data": {
-              "target": "Package",
-              "version": "[8.0.27, )"
-            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
@@ -73,6 +65,10 @@
             "Newtonsoft.Json.Bson": {
               "target": "Package",
               "version": "[1.0.2, )"
+            },
+            "Ookii.Dialogs.Wpf": {
+              "target": "Package",
+              "version": "[5.0.1, )"
             }
           },
           "imports": [

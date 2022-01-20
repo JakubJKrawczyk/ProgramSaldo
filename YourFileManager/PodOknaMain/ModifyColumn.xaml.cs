@@ -1,13 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Controls;
-using System.Linq;
-using System.Data;
-using MySql.Data.MySqlClient;
-using System;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Driver;
-using System.Windows.Input;
+using ProgramPraca.Data;
+using System;
+using System.Windows;
 
 namespace ProgramPraca.PodOknaMain
 {
@@ -15,11 +10,11 @@ namespace ProgramPraca.PodOknaMain
     /// Logika interakcji dla klasy ModifyColumn.xaml
     /// </summary>
     /// 
-    
+
 
     public partial class ModifyColumn : Window
     {
-        public int Refresh { get; set; }
+        int Refresh = 0;
         public ModifyColumn()
         {
             InitializeComponent();
@@ -36,15 +31,20 @@ namespace ProgramPraca.PodOknaMain
             {
                 return;
             }
-            var collection = MongoDb.Database.GetCollection<BsonDocument>(MongoDb.CollectionName);
+            var collection = Mongo.Database.GetCollection<BsonDocument>(Mongo.CollectionName);
 
             UpdateDefinition<BsonDocument> update = Builders<BsonDocument>.Update.Rename(ComboboxColumn.SelectedItem.ToString(), TextBoxNewName.Text);
 
             collection.UpdateMany($"{{}}", update);
             
-            MongoDb.FillDataGrid(Main.dt);
+            Mongo.FillDataGrid(Main.dt);
             Main.FillListOfColumns();
-            
+
+            //logs
+            Logger.ColumnOldName = ComboboxColumn.SelectedItem.ToString();
+            Logger.ColumnNewName = TextBoxNewName.Text;
+            Logger.CreateAction(5);
+            //
             ComboboxColumn.ItemsSource = Main.columns;
             var window = GetWindow(this);
             Refresh = 1;

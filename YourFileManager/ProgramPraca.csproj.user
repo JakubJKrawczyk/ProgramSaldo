@@ -1,16 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup />
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\user\source\repos\YourFileManager\YourFileManager\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
   <ItemGroup>
     <ApplicationDefinition Update="App.xaml">
       <SubType>Designer</SubType>
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="MyAccount.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="PodOknaMain\DellColumn.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PodOknaMain\DellUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PodOknaMain\PopUpAskCreateCollection.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Settings.xaml.cs">
@@ -24,10 +32,16 @@
     <Page Update="Login.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="MyAccount.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="PodOknaMain\DellColumn.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="PodOknaMain\DellUser.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PodOknaMain\PopUpAskCreateCollection.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Settings.xaml">

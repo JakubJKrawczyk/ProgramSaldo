@@ -1,19 +1,8 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
-using MySql.Data.MySqlClient;
-using System;
+using ProgramPraca.Data;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ProgramPraca.PodOknaMain
 {
@@ -24,25 +13,46 @@ namespace ProgramPraca.PodOknaMain
     {
         public AddUser()
         {
-            InitializeComponent();
             
+            
+            InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            List<string> userTypes = new();
+            userTypes.Add("uzytkownik");
+            userTypes.Add("administrator");
+            ComboBoxUserType.ItemsSource = userTypes;
+            ComboBoxUserType.SelectedItem = ComboBoxUserType.Items[0];
+            TextNewUsername.Text = "";
+            TextNewPassword.Text = "";
         }
 
         private void SaveUser(object sender, RoutedEventArgs e)
         {
             
-            
-            UserModel newUser = new();
-            newUser.UserId = ObjectId.GenerateNewId();
-            newUser.UserLogin = TextNewUsername.Text;
-            newUser.UserPassword = TextNewPassword.Text;
-            
-            newUser.UserType = EnumNewType.SelectedItem.ToString();
-            IMongoCollection<BsonDocument> users = MongoDb.Database.GetCollection<BsonDocument>("user");
+            if(TextNewUsername.Text != "")
+            {
+                UserModel newUser = new();
+                newUser.UserId = ObjectId.GenerateNewId();
+                newUser.UserLogin = TextNewUsername.Text;
+                newUser.UserPassword = TextNewPassword.Text;
 
-            users.InsertOne(newUser.ToBsonDocument());
-            MessageBox.Show($"Sukces! Dodałeś nowego użytkownika! \nOto jego dane:\n{newUser.ToJson()}");
-            Close();
+                newUser.UserType = ComboBoxUserType.SelectedItem.ToString();
+                IMongoCollection<BsonDocument> users = Mongo.Database.GetCollection<BsonDocument>("user");
+
+                users.InsertOne(newUser.ToBsonDocument());
+                MessageBox.Show($"Sukces! Dodałeś nowego użytkownika! \nOto jego dane:\n{newUser.ToJson()}");
+                Logger.AddedUser = newUser.UserLogin;
+                Logger.CreateAction(3);
+                AddUser w = new();
+                w.Show();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Pole UserName nie może być puste!");
+                return;
+            }
+            
 
             
         }

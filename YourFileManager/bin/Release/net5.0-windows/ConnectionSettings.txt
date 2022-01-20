@@ -1,0 +1,7 @@
+SERVER = localhost
+USERNAME = 
+PASSWORD = 
+DATABASE = ProgramSaldo
+TABLE = klienci
+LOGS_PATH = C:\Users\user\Desktop\ProgramPraca\logs.txt
+BACKUP_PATH = C:\Users\user\Desktop\ProgramPraca

@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
+using ProgramPraca.Data;
 using System.Windows;
 
 namespace ProgramPraca.PodOknaMain
@@ -19,13 +20,17 @@ namespace ProgramPraca.PodOknaMain
         {
             if(ComboboxColumn.SelectedItem is not null)
             {
-                IMongoCollection<BsonDocument> collection = MongoDb.Database.GetCollection<BsonDocument>("klienci");
+                IMongoCollection<BsonDocument> collection = Mongo.Database.GetCollection<BsonDocument>(Mongo.CollectionName);
                 UpdateDefinition<BsonDocument> update = Builders<BsonDocument>.Update.Unset(ComboboxColumn.SelectedItem.ToString());
 
                 collection.UpdateMany($"{{}}", update);
-                MongoDb.changeCount($"{{}}", false, collection);
-                MongoDb.FillDataGrid(Main.dt);
+                Mongo.ChangeCount($"{{}}", false, collection);
+                Mongo.FillDataGrid(Main.dt);
                 Main.FillListOfColumns();
+                //logs
+                Logger.DeletedColumn = ComboboxColumn.SelectedItem.ToString();
+                Logger.CreateAction(2);
+                //
                 Close();
             }
             

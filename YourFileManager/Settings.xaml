@@ -5,20 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgramPraca"
         mc:Ignorable="d"
-        Title="PolaczenieSettings" Height="450
-" Width="551">
+        Title="PolaczenieSettings" Height="381" Width="551" ResizeMode="NoResize">
     <Grid Margin="0,0,10,5">
-        <TextBox Name="TextHostProp" HorizontalAlignment="Left" Margin="201,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258" Height="32" FontSize="18"/>
         <Label Content="Ip Servera: " HorizontalAlignment="Left" Margin="103,33,0,0" VerticalAlignment="Top" Height="39" Width="93" FontSize="18"/>
-        <TextBox Name="TextUserProp" HorizontalAlignment="Left" Margin="201,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258" Height="32" FontSize="18"/>
-        <Label Content="Nazwa Użytkownika:" HorizontalAlignment="Left" Margin="25,84,0,0" VerticalAlignment="Top" Height="40" Width="171" FontSize="18"/>
-        <TextBox Name="TextPasswdProp" HorizontalAlignment="Left" Margin="201,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258" Height="32" FontSize="18"/>
-        <Label Content="Hasło Użytkownika: " HorizontalAlignment="Left" Margin="33,140,0,0" VerticalAlignment="Top" Height="38" Width="163" FontSize="18"/>
-        <TextBox Name="TextDatabaseProp" HorizontalAlignment="Left" Margin="201,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258" Height="32" FontSize="18"/>
-        <Label Content="Nazwa Bazy Danych:" HorizontalAlignment="Left" Margin="25,194,0,0" VerticalAlignment="Top" Height="40" Width="171" FontSize="18"/>
-        <Button Click="ZapiszUstawienia" Content="Zapisz" HorizontalAlignment="Left" Margin="201,306,0,0" VerticalAlignment="Top" Panel.ZIndex="6" Background="White" BorderBrush="#FFAEAEAE" Width="258" Height="32" UseLayoutRounding="True" Foreground="#FF87BC5E" ClickMode="Release" FontSize="20"/>
-        <TextBox x:Name="TextDatatableProp" HorizontalAlignment="Left" Margin="201,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258" Height="32" FontSize="18"/>
-        <Label Content="Nazwa Tabeli Danych:" HorizontalAlignment="Left" Margin="25,250,0,0" VerticalAlignment="Top" Height="40" Width="171" FontSize="18"/>
+        <TextBox Name="TextHostProp" HorizontalAlignment="Left" Margin="201,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258" Height="32" FontSize="18"/>
+        <Label Content="Nazwa Bazy Danych:" HorizontalAlignment="Left" Margin="25,71,0,0" VerticalAlignment="Top" Height="40" Width="171" FontSize="18"/>
+        <TextBox Name="TextDatabaseProp" HorizontalAlignment="Left" Margin="201,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258" Height="32" FontSize="18"/>
+        <Label Content="Nazwa Tabeli Danych:" HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top" Height="40" Width="186" FontSize="18"/>
+        <TextBox x:Name="TextDatatableProp" HorizontalAlignment="Left" Margin="201,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258" Height="32" FontSize="18"/>
+        <Label Content="Ścieżka do Logów:" HorizontalAlignment="Left" Margin="25,165,0,0" VerticalAlignment="Top" Height="40" Width="157" FontSize="18"/>
+        <TextBox x:Name="TextFilePath" HorizontalAlignment="Left" Margin="201,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Height="32" FontSize="16"/>
+        <Button Click="FilePath" Content="Znajdź" HorizontalAlignment="Left" Margin="389,169,0,0" VerticalAlignment="Top" Panel.ZIndex="6" Background="White" BorderBrush="#FFAEAEAE" Width="103" Height="32" UseLayoutRounding="True" Foreground="#FF87BC5E" ClickMode="Release" FontSize="20"/>
+        <Label Content="Ścieżka backup:" HorizontalAlignment="Left" Margin="25,215,0,0" VerticalAlignment="Top" Height="40" Width="157" FontSize="18"/>
+        <TextBox x:Name="TextBackupPath" HorizontalAlignment="Left" Margin="201,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Height="32" FontSize="16"/>
+        <Button Click="BackupPath" Content="Znajdź" HorizontalAlignment="Left" Margin="389,219,0,0" VerticalAlignment="Top" Panel.ZIndex="6" Background="White" BorderBrush="#FFAEAEAE" Width="103" Height="32" UseLayoutRounding="True" Foreground="#FF87BC5E" ClickMode="Release" FontSize="20"/>
+        <Button Click="ZapiszUstawienia" Content="Zapisz" HorizontalAlignment="Left" Margin="201,270,0,0" VerticalAlignment="Top" Panel.ZIndex="6" Background="White" BorderBrush="#FFAEAEAE" Width="258" Height="32" UseLayoutRounding="True" Foreground="#FF87BC5E" ClickMode="Release" FontSize="20"/>
 
     </Grid>
 </Window>

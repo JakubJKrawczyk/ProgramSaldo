@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgramPraca"
         mc:Ignorable="d"
-        Title="Program Praca" Height="600" Width="800">
+        Title="Program Praca" Height="600" Width="800" ResizeMode="NoResize">
     <Grid>
         <Grid Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" KeyDown="KeyDownE">
             <TextBlock HorizontalAlignment="Center" Margin="0,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Roboto Medium" FontSize="48" RenderTransformOrigin="0.546,0.612" Height="60" Foreground="White" Text="Program Praca&#xA;" IsEnabled="False" Background="#FF87BC5E" Width="370" FontStretch="Normal" FlowDirection="LeftToRight" Padding="25,0,0,0" UseLayoutRounding="True"/>

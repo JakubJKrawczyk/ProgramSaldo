@@ -3,14 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
         xmlns:local="clr-namespace:ProgramPraca.PodOknaMain"
         mc:Ignorable="d"
-        Title="AddColumn" Height="242" Width="550">
+        Title="AddColumn" Height="400" Width="550" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="23,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Roboto Medium" FontSize="48" RenderTransformOrigin="0.546,0.612" Height="60" Foreground="White" Text="Dodaj Kolumnę&#xA;" IsEnabled="False" Background="#FF87BC5E" Width="504" FontStretch="Normal" FlowDirection="LeftToRight" Padding="0,0,0,0" UseLayoutRounding="True" TextAlignment="Center"/>
-        <Button Name="Button1" Content="Dodaj kolumnę" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Panel.ZIndex="6" Background="White" BorderBrush="#FFAEAEAE" Width="250" Height="30" UseLayoutRounding="True" Foreground="#FF87BC5E" ClickMode="Release" FontSize="16" Click="Button_Click"/>
-        <TextBlock Name="TextBlockColumnName" HorizontalAlignment="Left" Margin="144,92,0,0" Text="Nazwa: " TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Width="66" FontSize="16" RenderTransformOrigin="0.561,0.691"/>
-        <TextBox Name="TextBoxColumnName" HorizontalAlignment="Left" Margin="215,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="22"/>
+        <Button Name="Button1" Content="Dodaj kolumnę" HorizontalAlignment="Center" Margin="0,322,0,0" VerticalAlignment="Top" Panel.ZIndex="6" Background="White" BorderBrush="#FFAEAEAE" Width="250" Height="30" UseLayoutRounding="True" Foreground="#FF87BC5E" ClickMode="Release" FontSize="16" Click="Button_Click"/>
+        <TextBlock Name="TextBlockColumnName" HorizontalAlignment="Left" Margin="104,82,0,0" Text="Nazwa: " TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Width="66" FontSize="16" RenderTransformOrigin="0.561,0.691"/>
+        <TextBox Name="TextBoxColumnName" HorizontalAlignment="Center" Margin="0,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="22"/>
+        <TextBlock HorizontalAlignment="Left" Margin="23,115,0,0" Text="Wybierz przynależność:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13"/>
+        <ComboBox Name="ComboBoxOwnerType" HorizontalAlignment="Center" Margin="0,112,0,0" VerticalAlignment="Top" Width="200" BorderBrush="White" Background="White"/>
+        <CheckBox Name="CheckBoxIsEnum" Content="Typ wyliczeniowy" HorizontalAlignment="Left" Margin="175,139,0,0" VerticalAlignment="Top" Click="CheckBoxIsEnum_Click"/>
+        <ListBox Name="ListBoxEnumValues" Margin="175,159,175,95"/>
+        <TextBox Name="TextBoxNewEnumValue" HorizontalAlignment="Left" Margin="175,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="20"/>
+        <Button x:Name="plus" Content="+" HorizontalAlignment="Left" Margin="315,289,0,0" VerticalAlignment="Top" Width="20" Height="25" BorderBrush="White" Foreground="#FF87BC5E" Click="PlusPressed" BorderThickness="0,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,0,0,0" FlowDirection="LeftToRight" FontStyle="Normal" FontStretch="Normal" FontWeight="Black" FontSize="20" Background="White"/>
+        <Button x:Name="minus" Content="-" HorizontalAlignment="Left" Margin="348,289,0,0" VerticalAlignment="Top" Width="20" Height="25" BorderBrush="White" Foreground="#FF87BC5E" FontSize="20" Click="MinusPressed" BorderThickness="0,0,0,0" Background="White" FontWeight="Black">
 
+        </Button>
     </Grid>
 </Window>

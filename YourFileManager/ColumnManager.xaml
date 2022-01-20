@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgramPraca"
         mc:Ignorable="d"
-        Title="ColumnManager" Height="194" Width="300">
+        Title="ColumnManager" Height="194" Width="300" ResizeMode="NoResize">
     <Grid>
         <Button x:Name="but1" Content="Dodaj Kolumnę" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" Panel.ZIndex="6" Background="White" BorderBrush="#FFAEAEAE" Width="200" Height="34" UseLayoutRounding="True" Foreground="#FF87BC5E" ClickMode="Release" FontSize="16" Click="AddColumn"/>
         <Button x:Name="but2" Content="Modyfikuj Kolumnę" HorizontalAlignment="Center" Margin="0,106,0,0" VerticalAlignment="Top" Panel.ZIndex="6" Background="White" BorderBrush="#FFAEAEAE" Width="200" Height="34" UseLayoutRounding="True" Foreground="#FF87BC5E" ClickMode="Release" FontSize="16" Click="ModifyColumn"/>

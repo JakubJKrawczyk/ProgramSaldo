@@ -1,0 +1,1 @@
+{ "_id" : ObjectId("61dbf5a7ec3a97bc25e601e7"), "newColumn" : "JANECZEK", "count" : -3, "s" : "ss", "sd" : "sds" }

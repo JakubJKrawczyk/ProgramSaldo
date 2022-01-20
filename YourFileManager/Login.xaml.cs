@@ -1,6 +1,8 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using Newtonsoft.Json;
+using ProgramPraca.Data;
+using System;
 using System.Data;
 using System.Windows;
 using System.Windows.Input;
@@ -21,6 +23,8 @@ namespace ProgramPraca
             TextLogin.Text = "";
             TextPassword.Password = "";
 
+            
+
         }
 
         private void login(object sender, RoutedEventArgs e)
@@ -35,11 +39,24 @@ namespace ProgramPraca
 
 
             //Nowy Sposób MongoDB
+            try
+            {
+                Mongo.MakeConnection();
+            }catch(Exception error)
+            {
+                MessageBox.Show($"Błąd łączenia z bazą danych! Sprawdź ustawienia połączenia i spróbuj ponownie.\n\nERROR: {error.Message}");
 
-            MongoDb.MakeConnection();
+                Application.Current.Shutdown();
+            }
+            
+            if (Logger.LogsPath == "")
+            {
+                MessageBox.Show("Wskaż ścieżkę do pliku, w którym chcesz zapisywać historie działań programu!");
+                return;
+            }
             FilterDefinition<UserModel> Filter = Builders<UserModel>.Filter.Eq(a => a.UserLogin, login);
 
-            var userCollection = MongoDb.Database.GetCollection<UserModel>("user");
+            var userCollection = Mongo.Database.GetCollection<UserModel>("user");
 
             UserHolder.User = userCollection.Find(Filter).SingleOrDefault();
 

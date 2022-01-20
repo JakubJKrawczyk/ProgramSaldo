@@ -5,25 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgramPraca.PodOknaMain"
         mc:Ignorable="d"
-        Title="AddUser" Height="300" Width="700">
+        Title="AddUser" Height="300" Width="700" ResizeMode="NoResize">
     <Grid>
         <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Roboto Medium" FontSize="48" RenderTransformOrigin="0.546,0.612" Height="60" Foreground="White" Text="Dodaj Użytkownika&#xA;" IsEnabled="False" Background="#FF87BC5E" Width="505" FontStretch="Normal" FlowDirection="LeftToRight" Padding="0,0,0,0" UseLayoutRounding="True" TextAlignment="Center"/>
         <Label Content="Nazwa Użytkownika:" HorizontalAlignment="Left" Margin="56,89,0,0" VerticalAlignment="Top" FontFamily="Roboto Light" FontSize="20"/>
-        <ComboBox Name="EnumNewType" HorizontalAlignment="Left" Margin="252,174,0,0" VerticalAlignment="Top" Width="250" Height="26" BorderBrush="#FF87BC5E">
-            <ComboBox.Background>
-                <LinearGradientBrush EndPoint="0,1">
-                    <GradientStop Color="#FFF0F0F0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </ComboBox.Background>
-            <ComboBoxItem Content="uzytkownik" IsSelected="True" ></ComboBoxItem>
-            <ComboBoxItem Content="administrator"></ComboBoxItem>
-        </ComboBox>
         <TextBox Name="TextNewPassword" HorizontalAlignment="Left" Margin="251,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="35" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Top"/>
-        <TextBox Name="TextNewUsername" HorizontalAlignment="Left" Margin="251,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="35" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" RenderTransformOrigin="0.494,0.529"/>
+        <TextBox Name="TextNewUsername" HorizontalAlignment="Left" Margin="251,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="35" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" RenderTransformOrigin="0.494,0.529" ForceCursor="True"/>
         <Label Content="Hasło Użytkownika:" HorizontalAlignment="Left" Margin="65,131,0,0" VerticalAlignment="Top" FontFamily="Roboto Light" FontSize="20"/>
         <Label Content="Typ Użytkownika:" HorizontalAlignment="Left" Margin="85,170,0,0" VerticalAlignment="Top" FontFamily="Roboto Light" FontSize="20"/>
         <Button Content="Nowy Użytkownik" HorizontalAlignment="Left" Margin="252,218,0,0" VerticalAlignment="Top" Panel.ZIndex="6" Background="White" BorderBrush="#FFAEAEAE" Width="250" Height="30" UseLayoutRounding="True" Foreground="#FF87BC5E" ClickMode="Release" FontSize="16" Click="SaveUser"/>
+        <ComboBox Name="ComboBoxUserType" HorizontalAlignment="Left" Margin="251,178,0,0" VerticalAlignment="Top" Width="250"/>
 
     </Grid>
 </Window>

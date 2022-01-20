@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgramPraca"
         mc:Ignorable="d"
-        Title="UserManager" Height="180" Width="300">
+        Title="UserManager" Height="184" Width="300" ResizeMode="NoResize">
     <Grid>
-        <Button x:Name="but1" Content="Dodaj Użytkownika" HorizontalAlignment="Left" Margin="50,28,0,0" VerticalAlignment="Top" Panel.ZIndex="6" Background="White" BorderBrush="#FFAEAEAE" Width="200" Height="34" UseLayoutRounding="True" Foreground="#FF87BC5E" ClickMode="Release" FontSize="16" Click="AddUser"/>
-        <Button x:Name="but2" Content="Usuń Użytkownika" HorizontalAlignment="Left" Margin="50,67,0,0" VerticalAlignment="Top" Panel.ZIndex="6" Background="White" BorderBrush="#FFAEAEAE" Width="200" Height="34" UseLayoutRounding="True" Foreground="#FF87BC5E" ClickMode="Release" FontSize="16" Click="DellUser"/>
+        <Button x:Name="but1" Content="Dodaj Użytkownika" HorizontalAlignment="Center" Margin="0,12,0,0" VerticalAlignment="Top" Panel.ZIndex="6" Background="White" BorderBrush="#FFAEAEAE" Width="184" Height="34" UseLayoutRounding="True" Foreground="#FF87BC5E" ClickMode="Release" FontSize="16" Click="AddUser"/>
+        <Button x:Name="but2" Content="Usuń Użytkownika" HorizontalAlignment="Center" VerticalAlignment="Top" Panel.ZIndex="6" Background="White" BorderBrush="#FFAEAEAE" Width="184" Height="32" UseLayoutRounding="True" Foreground="#FF87BC5E" ClickMode="Release" FontSize="16" Click="DellUser" Margin="0,52,0,0"/>
+        <Button x:Name="but3" Content="Pokaż Użytkowników" HorizontalAlignment="Center" Margin="0,89,0,0" VerticalAlignment="Top" Panel.ZIndex="6" Background="White" BorderBrush="#FFAEAEAE" Width="184" Height="34" UseLayoutRounding="True" Foreground="#FF87BC5E" ClickMode="Release" FontSize="16" Click="ShowUsers"/>
 
     </Grid>
 </Window>

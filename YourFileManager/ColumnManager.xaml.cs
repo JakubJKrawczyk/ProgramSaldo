@@ -19,14 +19,16 @@ namespace ProgramPraca
     /// </summary>
     public partial class ColumnManager : Window
     {
-        public ColumnManager()
+        public DateTime Date { get; set; }
+        public ColumnManager(DateTime date)
         {
             InitializeComponent();
+            Date = date;
         }
 
         private void AddColumn(object sender, RoutedEventArgs e)
         {
-            PodOknaMain.AddColumn W = new();
+            PodOknaMain.AddColumn W = new PodOknaMain.AddColumn(Date);
             W.Show();
             Close();
         }

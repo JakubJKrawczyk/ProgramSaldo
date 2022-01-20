@@ -1,18 +1,9 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
-using System;
+using ProgramPraca.Data;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ProgramPraca.PodOknaMain
 {
@@ -24,30 +15,37 @@ namespace ProgramPraca.PodOknaMain
         public DellUser()
         {
             InitializeComponent();
-            IMongoCollection<BsonDocument> users = MongoDb.Database.GetCollection<BsonDocument>("user");
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            IMongoCollection<BsonDocument> users = Mongo.Database.GetCollection<BsonDocument>("user");
             List<string> usersNames = new();
             foreach(BsonDocument doc in users.AsQueryable())
             {
                 usersNames.Add(doc["Login"].AsString);
             }
-            ComboBoxUser.ItemsSource = usersNames;
-            ComboBoxUser.SelectedItem = ComboBoxUser.Items[0];
+            ListBoxUsers.ItemsSource = usersNames;
+            
         }
 
         
 
         private void DellUserFunc(object sender, RoutedEventArgs e)
         {
-            string userName = ComboBoxUser.SelectedItem.ToString();
-            MessageBox.Show(userName);
-            if (UserHolder.User.UserLogin == userName)
+            var userNames = ListBoxUsers.SelectedItems;
+            IMongoCollection<BsonDocument> users = Mongo.Database.GetCollection<BsonDocument>("user");
+            long count = 0;
+            foreach (string userName in userNames)
             {
+                if (UserHolder.User.UserLogin == userName) continue;
+                FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq("Login", userName);
+                Logger.DeletedUser = userName;
+                Logger.CreateAction(4);
+                count += users.DeleteOne(filter).DeletedCount;
 
             }
-            IMongoCollection<BsonDocument> users = MongoDb.Database.GetCollection<BsonDocument>("user");
-            FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq("Login", userName);
+            MessageBox.Show($"Usunięto {count} użytkowników.");
 
-            MessageBox.Show($"Usunięto {users.DeleteOne(filter).DeletedCount} użytkowników.");
+            DellUser w = new();
+            w.Show();
             Close();
         }
     }
