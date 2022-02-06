@@ -6,11 +6,30 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v5.0": {
+      "DataGridExtensions/2.5.13": {
+        "dependencies": {
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.39"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/DataGridExtensions.dll": {
+            "assemblyVersion": "2.5.13.0",
+            "fileVersion": "2.5.13.0"
+          }
+        }
+      },
       "DnsClient/1.4.0": {
         "runtime": {
           "lib/netstandard2.1/DnsClient.dll": {
             "assemblyVersion": "1.4.0.0",
             "fileVersion": "1.4.0.0"
+          }
+        }
+      },
+      "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {
+        "runtime": {
+          "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.39.4716"
           }
         }
       },
@@ -142,6 +161,26 @@
           }
         }
       },
+      "PropertyTools/3.1.0": {
+        "runtime": {
+          "lib/netstandard2.0/PropertyTools.dll": {
+            "assemblyVersion": "3.1.0.0",
+            "fileVersion": "3.1.0.0"
+          }
+        }
+      },
+      "PropertyTools.Wpf/3.1.0": {
+        "dependencies": {
+          "PropertyTools": "3.1.0",
+          "System.ComponentModel.Annotations": "4.6.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/PropertyTools.Wpf.dll": {
+            "assemblyVersion": "3.1.0.0",
+            "fileVersion": "3.1.0.0"
+          }
+        }
+      },
       "SharpCompress/0.30.1": {
         "runtime": {
           "lib/net5.0/SharpCompress.dll": {
@@ -151,6 +190,14 @@
         }
       },
       "System.Buffers/4.5.1": {},
+      "System.ComponentModel.Annotations/4.6.0": {
+        "runtime": {
+          "lib/netstandard2.1/System.ComponentModel.Annotations.dll": {
+            "assemblyVersion": "4.3.0.0",
+            "fileVersion": "4.700.19.46214"
+          }
+        }
+      },
       "System.Runtime.CompilerServices.Unsafe/5.0.0": {
         "runtime": {
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
@@ -162,12 +209,26 @@
     }
   },
   "libraries": {
+    "DataGridExtensions/2.5.13": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9p9c/NuFYddjt+klDWqw7SeA5xvUrlcMfAUge/lEiv9Nid0oJytL+/n3EE/6vnjBxWKepBwfPZP/yGDvfDiDzQ==",
+      "path": "datagridextensions/2.5.13",
+      "hashPath": "datagridextensions.2.5.13.nupkg.sha512"
+    },
     "DnsClient/1.4.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-CO1NG1zQdV0nEAXmr/KppLZ0S1qkaPwV0kPX5YPgmYBtrBVh1XMYHM54IXy3RBJu1k4thFtpzwo4HNHqxiuFYw==",
       "path": "dnsclient/1.4.0",
       "hashPath": "dnsclient.1.4.0.nupkg.sha512"
+    },
+    "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8PZKqw9QOcu42xk8puY4P1+EXHL9YGOR9b7qhaYx5cILHul456H073tj99vyPcCt0W0781T9RwHqkx507ZyUpQ==",
+      "path": "microsoft.xaml.behaviors.wpf/1.1.39",
+      "hashPath": "microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
     },
     "MongoDB.Bson/2.14.1": {
       "type": "package",
@@ -218,6 +279,20 @@
       "path": "ookii.dialogs.wpf/5.0.1",
       "hashPath": "ookii.dialogs.wpf.5.0.1.nupkg.sha512"
     },
+    "PropertyTools/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NAbA0+9rXe3L372/A4QOuCt0UCw9iPKI4Hkeu8PycC9TSJmEpsAgRb/qdXaPLkE+Z3zT3n1lPIGL7Oi+WBltqg==",
+      "path": "propertytools/3.1.0",
+      "hashPath": "propertytools.3.1.0.nupkg.sha512"
+    },
+    "PropertyTools.Wpf/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-e1CyxgZ+6RUeEHXTU0+ozNgdQIYciouu4I/9ygSaGn6v8ftzJ/us/FOlZyHyhf7QNakGH0Jds6eMZ45CM3ES3w==",
+      "path": "propertytools.wpf/3.1.0",
+      "hashPath": "propertytools.wpf.3.1.0.nupkg.sha512"
+    },
     "SharpCompress/0.30.1": {
       "type": "package",
       "serviceable": true,
@@ -231,6 +306,13 @@
       "sha512": "sha512-Rw7ijyl1qqRS0YQD/WycNst8hUUMgrMH4FCn1nNm27M4VxchZ1js3fVjQaANHO5f3sN4isvP4a+Met9Y4YomAg==",
       "path": "system.buffers/4.5.1",
       "hashPath": "system.buffers.4.5.1.nupkg.sha512"
+    },
+    "System.ComponentModel.Annotations/4.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pOd+UhZ3X8xfwKDlgAzowUJNjp8VYVmOHZm++vCd0kq1HZ0zK3mNo2yRXjYgv7Ik/Xi43fmJfND2PLEsQSALCg==",
+      "path": "system.componentmodel.annotations/4.6.0",
+      "hashPath": "system.componentmodel.annotations.4.6.0.nupkg.sha512"
     },
     "System.Runtime.CompilerServices.Unsafe/5.0.0": {
       "type": "package",

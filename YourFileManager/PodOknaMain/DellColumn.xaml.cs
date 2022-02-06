@@ -13,7 +13,7 @@ namespace ProgramPraca.PodOknaMain
         public DellColumn()
         {
             InitializeComponent();
-            ComboboxColumn.ItemsSource = Main.columns;
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

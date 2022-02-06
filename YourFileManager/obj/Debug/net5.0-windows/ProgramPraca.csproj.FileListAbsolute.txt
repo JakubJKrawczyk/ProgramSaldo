@@ -72,3 +72,31 @@ C:\Users\user\source\repos\YourFileManager\YourFileManager\obj\Debug\net5.0-wind
 C:\Users\user\source\repos\YourFileManager\YourFileManager\bin\Debug\net5.0-windows\Ookii.Dialogs.Wpf.dll
 C:\Users\user\source\repos\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\MyAccount.g.cs
 C:\Users\user\source\repos\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\MyAccount.baml
+C:\Users\user\source\repos\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\ColorsManager.g.cs
+C:\Users\user\source\repos\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\PodOknaMain\PopUpAskCreateCollection.g.cs
+C:\Users\Jakub\source\repos\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\ProgramPraca.dll
+C:\Users\Jakub\source\repos\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\ref\ProgramPraca.dll
+C:\Users\Jakub\source\repos\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\ProgramPraca.pdb
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\ProgramPraca.csproj.AssemblyReference.cache
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\ColorsManager.g.cs
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\ColumnManager.g.cs
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\Login.g.cs
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\Main.g.cs
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\MyAccount.g.cs
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\PodOknaMain\AddColumn.g.cs
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\PodOknaMain\AddUser.g.cs
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\PodOknaMain\DellColumn.g.cs
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\PodOknaMain\DellUser.g.cs
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\PodOknaMain\Filtr.g.cs
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\PodOknaMain\ModifyColumn.g.cs
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\PodOknaMain\PopUpAskCreateCollection.g.cs
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\Settings.g.cs
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\UserManager.g.cs
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\ProgramPraca_Content.g.cs
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\ProgramPraca_MarkupCompile.cache
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\ProgramPraca_MarkupCompile.lref
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\ProgramPraca.dll
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\ref\ProgramPraca.dll
+C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\obj\Debug\net5.0-windows\ProgramPraca.pdb

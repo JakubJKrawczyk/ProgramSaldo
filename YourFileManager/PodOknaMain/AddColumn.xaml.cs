@@ -42,8 +42,9 @@ namespace ProgramPraca.PodOknaMain
                 column.Add("columnOwner", ComboBoxOwnerType.SelectedItem.ToString());
 
                 collection.UpdateMany($"{{}}", update);
+
                 var collectionColumns = Mongo.Database.GetCollection<BsonDocument>($"columns-klienci-{Date.Year}-{Date.Month}");
-                
+                collectionColumns.InsertOne(column); 
                 Mongo.ChangeCount($"{{}}", true, collection);
                 Mongo.FillDataGrid(Date, Main.dt);
 
@@ -52,14 +53,21 @@ namespace ProgramPraca.PodOknaMain
             }
             else
             {
-
+                IMongoCollection<BsonDocument> collection = Mongo.Database.GetCollection<BsonDocument>($"klienci-{Date.Year}-{Date.Month}");
+                var collectionColumns = Mongo.Database.GetCollection<BsonDocument>($"columns-klienci-{Date.Year}-{Date.Month}");
+                string columnEnumValuesWithColors = "";
+                BsonDocument column = new();
+                column.Add("columnName", TextBoxColumnName.Text);
+                column.Add("columnOwner", ComboBoxOwnerType.SelectedItem.ToString());
+                column.Add("columnEnumValuesWithColors", columnEnumValuesWithColors);
+                
             }
-
+            
             //Logs
             Logger.AddedColumn = TextBoxColumnName.Text;
             Logger.CreateAction(1);
             //
-            AddColumn w = new();
+            AddColumn w = new(Date);
             w.Show();
             Close();
 
@@ -103,6 +111,11 @@ namespace ProgramPraca.PodOknaMain
         private void CheckBoxIsEnum_Click(object sender, RoutedEventArgs e)
         {
             ChangeEnumVisibility();
+        }
+
+        private void OnSelectChange(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

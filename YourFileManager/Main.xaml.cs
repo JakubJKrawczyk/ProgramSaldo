@@ -8,6 +8,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Linq;
+using System.Drawing;
+using System.Windows.Media;
+
 namespace ProgramPraca
 {
     /// <summary>
@@ -15,24 +18,31 @@ namespace ProgramPraca
     /// </summary>
     public partial class Main : Window
     {
-        public   static DataGrid dt = new();
+        public static DataGrid dt = new();
 
         public Main()
         {
             InitializeComponent();
             dt = dtGrid;
 
-           if (UserHolder.User.UserType != "administrator")
+            if (UserHolder.User.UserType == "administrator")
             {
-                But1.Visibility = Visibility.Hidden;
-                But2.Visibility = Visibility.Hidden;
+                ButtonManageColors.Visibility = Visibility.Hidden; 
+
+            }else if(UserHolder.User.UserType == "superadministrator")
+            {
 
             }
+            else
+            {
+                ButtonManageUsers.Visibility = Visibility.Hidden;
+                ButtonManageColumns.Visibility = Visibility.Hidden;
+                ButtonManageColors.Visibility = Visibility.Hidden;
+            }
 
-           
             try
             {
-                Mongo.FillDataGrid(CalendarMonthSelection.SelectedDate.Value,dt);
+                Mongo.FillDataGrid(CalendarMonthSelection.SelectedDate.Value, dt);
 
             }
             catch (Exception e)
@@ -43,7 +53,7 @@ namespace ProgramPraca
 
             }
             Mongo.CheckBackupDate();
-            
+
         }
 
 
@@ -53,8 +63,9 @@ namespace ProgramPraca
 
         private void ColumnManager(object sender, RoutedEventArgs e)
         {
-            ColumnManager w = new();
+            ColumnManager w = new ColumnManager(CalendarMonthSelection.SelectedDate.Value);
             w.Show();
+
         }
 
         private void UserManager(object sender, RoutedEventArgs e)
@@ -71,14 +82,15 @@ namespace ProgramPraca
         //
 
 
-        private void ChangeData(DateTime date,object sender, DataGridCellEditEndingEventArgs e)
+        private void ChangeData(object sender, DataGridCellEditEndingEventArgs e)
         {
             DataRowView row = (DataRowView)dt.SelectedItem;
+            DataGridCell cell = e.EditingElement as DataGridCell;
+            DateTime date = CalendarMonthSelection.SelectedDate.Value;
             
-           
-            var collection = Mongo.Database.GetCollection<BsonDocument>($"klienci-{date.Year}-{date.Month}");
-            
-            if(row[0].ToString() == "")
+            var collection = Mongo.Database.GetCollection<BsonDocument>($"{Mongo.CollectionName}-{date.Year}-{date.Month}");
+
+            if (row[0].ToString() == "")
             {
                 ObjectId newId = new ObjectId();
                 newId = ObjectId.GenerateNewId();
@@ -92,7 +104,7 @@ namespace ProgramPraca
             else
             {
                 ObjectId id = new ObjectId(row[0].ToString());
-            
+
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
 
                 BsonDocument rowToUpdate = collection.Find(filter).Single();
@@ -103,61 +115,64 @@ namespace ProgramPraca
                 }
                 TextBox value = e.EditingElement as TextBox;
                 UpdateDefinition<BsonDocument> update = Builders<BsonDocument>.Update.Set(e.Column.Header.ToString(), value.Text);
-                
-                
-            
+
+
+
                 collection.UpdateOne(filter, update);
 
 
             }
 
-            
+
 
         }
 
-        
+
         private void SetColumnsReadOnly(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            
-            
+
+
             if (e.Column.Header.ToString() == "_id")
             {
                 e.Column.IsReadOnly = true;
-            }else if (e.Column.Header.ToString() == "count")
+            }
+            else if (e.Column.Header.ToString() == "count")
             {
                 e.Column.Visibility = Visibility.Hidden;
             }
-            
+
         }
 
-       
 
-       
 
-        private void Window_KeyUp( object sender, KeyEventArgs e)
+
+
+        private void Window_KeyUp(object sender, KeyEventArgs e)
         {
 
-            if(e.Key == Key.Enter)
+            if (e.Key == Key.Enter)
             {
                 DateTime date = CalendarMonthSelection.SelectedDate.Value;
-                Mongo.FillDataGrid(date,dt);
+                Mongo.FillDataGrid(date, dt);
             }
         }
 
-        
 
-     
 
-        
 
-        private void dtGrid_PreviewKeyDown(DateTime date,object sender, KeyEventArgs e)
+
+
+
+        private void dtGrid_PreviewKeyDown(object sender, KeyEventArgs e)
         {
+            
             if (Key.Delete == e.Key)
             {
+                DateTime date = CalendarMonthSelection.SelectedDate.Value;
                 if (dt.Items.Count == 2) return;
 
                 DataRowView row = dt.SelectedItem as DataRowView;
-                IMongoCollection<BsonDocument> collection = Mongo.Database.GetCollection<BsonDocument>($"klienci-{date.Year}-{date.Month}");
+                IMongoCollection<BsonDocument> collection = Mongo.Database.GetCollection<BsonDocument>($"{Mongo.CollectionName}-{date.Year}-{date.Month}");
                 ObjectId id = new ObjectId(row.Row[0].ToString());
                 FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq("_id", id);
                 collection.DeleteOne(filter);
@@ -187,10 +202,18 @@ namespace ProgramPraca
                 var previousDate = (DateTime)e.OldValue;
                 PodOknaMain.PopUpAskCreateCollection w = new PodOknaMain.PopUpAskCreateCollection(CalendarMonthSelection, previousDate, currentDate);
 
-                
-                
-                
+
+
+
             }
         }
+
+        private void ManageColors(object sender, RoutedEventArgs e)
+        {
+            Window w = new();
+            
+        }
+
+      
     }
 }

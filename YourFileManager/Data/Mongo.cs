@@ -16,7 +16,7 @@ namespace ProgramPraca
     {
         public static MongoClient Client { get; set; }
         public static IMongoDatabase Database { get; set; }
-
+        public static string CollectionName { get; set; }
         public static string ServerName { get; set; } = "";
         public static string Port { get; set; } = "27017";
         public static string DataBaseName { get; set; } = "";
@@ -25,21 +25,21 @@ namespace ProgramPraca
         public static string BackupPath { get; set; }
 
         //Data section
-        
 
-        public static void FillDataGrid(DateTime date, DataGrid dt, FilterDefinition<BsonDocument> Filter = null)
+
+        public static void  FillDataGrid(DateTime date, DataGrid dt, FilterDefinition<BsonDocument> Filter = null)
         {
-            var klienciCollection = Database.GetCollection<dynamic>($"klienci-{date.Year}-{date.Month}");
+            var klienciCollection = Database.GetCollection<dynamic>($"{CollectionName }-{date.Year}-{date.Month}");
 
-            
-            if(Filter == null)
+
+            if (Filter == null)
             {
                 FilterDefinition<dynamic> emptyFilter = Builders<dynamic>.Filter.Empty;
-                var collectionData = klienciCollection.Find(emptyFilter).ToList();
+                var collectionData = klienciCollection.FindAsync(emptyFilter).Result.ToList();
 
 
-                var dataTable = ToDataTable(collectionData.OrderByDescending(item => item.count) );
-                if(dataTable is not null)
+                var dataTable = ToDataTable(collectionData.OrderByDescending(item => item.count));
+                if (dataTable is not null)
                 {
                     dt.ItemsSource = dataTable.DefaultView;
                 }
@@ -47,11 +47,11 @@ namespace ProgramPraca
                 {
                     DataTable newData = new();
                     newData.Columns.Add("newColumn");
-                   
+
                     dt.ItemsSource = newData.DefaultView;
-                    
+
                 }
-                
+
 
             }
         }
@@ -59,23 +59,23 @@ namespace ProgramPraca
         public static void CreateNewMonthCollection(DateTime previousDate, DateTime date)
         {
 
-            var previousCollection = Mongo.Database.GetCollection<BsonDocument>($"klienci-{previousDate.Year}-{previousDate.Month}");
-            var previousCollectionColumns = Mongo.Database.GetCollection<BsonDocument>($"columns-klienci-{previousDate.Year}-{previousDate.Month}");
-            Mongo.Database.CreateCollection($"klienci-{date.Year}-{date.Month}");
-            Mongo.Database.CreateCollection($"columns-klienci-{date.Year}-{date.Month}");
-            var currentCollection = Mongo.Database.GetCollection<BsonDocument>($"klienci-{date.Year}-{date.Month}");
-            var currentCollectionColumns = Mongo.Database.GetCollection<BsonDocument>($"columns-klienci--{date.Year}-{date.Month}");
+            var previousCollection = Mongo.Database.GetCollection<BsonDocument>($"{CollectionName }-{previousDate.Year}-{previousDate.Month}");
+            var previousCollectionColumns = Mongo.Database.GetCollection<BsonDocument>($"columns-{CollectionName }-{previousDate.Year}-{previousDate.Month}");
+            Mongo.Database.CreateCollection($"{CollectionName }-{date.Year}-{date.Month}");
+            Mongo.Database.CreateCollection($"columns-{CollectionName }-{date.Year}-{date.Month}");
+            var currentCollection = Mongo.Database.GetCollection<BsonDocument>($"{CollectionName }-{date.Year}-{date.Month}");
+            var currentCollectionColumns = Mongo.Database.GetCollection<BsonDocument>($"columns-{CollectionName }--{date.Year}-{date.Month}");
 
-            var rows = previousCollection.Find($"{{}}").ToList();
-            var columns = previousCollectionColumns.Find($"{{}}").ToList();
-            currentCollection.InsertMany(rows);
-            currentCollectionColumns.InsertMany(columns);
+            var rows = previousCollection.FindAsync($"{{}}").Result.ToList();
+            var columns = previousCollectionColumns.FindAsync($"{{}}").Result.ToList();
+            currentCollection.InsertManyAsync(rows);
+            currentCollectionColumns.InsertManyAsync(columns);
 
         }
         public static bool CheckIfMonthCollectonExists(DateTime date)
         {
 
-            return Mongo.Database.GetCollection<BsonDocument>($"klienci-{date.Year}-{date.Month}") == null ? true : false;
+            return Mongo.Database.GetCollection<BsonDocument>($"{CollectionName }-{date.Year}-{date.Month}") == null ? true : false;
         }
 
         //
@@ -85,13 +85,13 @@ namespace ProgramPraca
             {
 
 
-                IMongoCollection<BsonDocument> collection = Database.GetCollection<BsonDocument>($"klienci-{DateTime.Now.Year}-{DateTime.Now.Month}");
+                IMongoCollection<BsonDocument> collection = Database.GetCollection<BsonDocument>($"{CollectionName }-{DateTime.Now.Year}-{DateTime.Now.Month}");
 
 
 
-                
+
                 List<BsonDocument> clients = collection.Find($"{{}}").ToList();
-                string path = $"{BackupPath}/przywracanie/{DateTime.Now.Day}-{DateTime.Now.Month}-{DateTime.Now.Year}-{DateTime.Now.Hour}-{DateTime.Now.Minute}/kopiazapasowa-klienci-{DateTime.Now.Day}-{DateTime.Now.Month}-{DateTime.Now.Year}-{DateTime.Now.Hour}-{DateTime.Now.Minute}.txt";
+                string path = $"{BackupPath}/przywracanie/{DateTime.Now.Day}-{DateTime.Now.Month}-{DateTime.Now.Year}-{DateTime.Now.Hour}-{DateTime.Now.Minute}/kopiazapasowa-{CollectionName }-{DateTime.Now.Day}-{DateTime.Now.Month}-{DateTime.Now.Year}-{DateTime.Now.Hour}-{DateTime.Now.Minute}.txt";
                 foreach (var doc in clients)
                 {
                     File.AppendAllText(path, doc.ToJson());
@@ -117,7 +117,7 @@ namespace ProgramPraca
         public static void CheckBackupDate()
         {
             dynamic backups = Mongo.Database.GetCollection<BsonDocument>("backup").Find($"{{}}").SortByDescending(x => x["Data dodania"]).FirstOrDefault();
-            if(backups is null)
+            if (backups is null)
             {
 
                 MakeBackup();
@@ -126,19 +126,19 @@ namespace ProgramPraca
             {
                 DateTime lastDate = (DateTime)backups["Data dodania"];
 
-                if((DateTime.Now - lastDate.Date).TotalDays >= 1)
+                if ((DateTime.Now - lastDate.Date).TotalDays >= 1)
                 {
                     MakeBackup();
                 }
-                
+
             }
         }
 
-       
+
 
         public static DataTable ToDataTable(IEnumerable<dynamic> items)
         {
-           
+
 
             var data = items.ToArray();
             if (data.Length == 0) return null;
@@ -153,7 +153,7 @@ namespace ProgramPraca
             foreach (var pair in data)
             {
                 var row = dt.NewRow();
-                
+
                 foreach (var para in (IDictionary<string, object>)pair)
                 {
                     if (dt.Columns.Contains(para.Key) == false)
@@ -169,7 +169,7 @@ namespace ProgramPraca
         }
 
 
-        
+
 
         public static bool ChangeCount(FilterDefinition<BsonDocument> filter, bool increaseOrDecrease, IMongoCollection<BsonDocument> collection)
         {
@@ -205,7 +205,7 @@ namespace ProgramPraca
                     {
                         Mongo.DataBaseName = splitted[2];
                     }
-                  
+
                     if (splitted[0] == "LOGS_PATH")
                     {
                         Logger.LogsPath = splitted[2];
@@ -217,7 +217,7 @@ namespace ProgramPraca
 
 
                 };
-                
+
 
             }
             else
