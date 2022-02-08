@@ -102,7 +102,7 @@ namespace ProgramPraca {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProgramPraca;component/main.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ProgramPraca;V1.0.0.0;component/main.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Main.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

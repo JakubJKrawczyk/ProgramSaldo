@@ -62,7 +62,7 @@ namespace ProgramPraca.PodOknaMain {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProgramPraca;component/podoknamain/dellcolumn.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ProgramPraca;V1.0.0.0;component/podoknamain/dellcolumn.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\PodOknaMain\DellColumn.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

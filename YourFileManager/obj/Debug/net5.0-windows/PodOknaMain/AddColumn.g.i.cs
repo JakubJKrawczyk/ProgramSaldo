@@ -134,7 +134,7 @@ namespace ProgramPraca.PodOknaMain {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProgramPraca;component/podoknamain/addcolumn.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ProgramPraca;V1.0.0.0;component/podoknamain/addcolumn.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\PodOknaMain\AddColumn.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

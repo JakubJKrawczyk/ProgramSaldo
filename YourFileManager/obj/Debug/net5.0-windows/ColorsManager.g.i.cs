@@ -94,7 +94,7 @@ namespace ProgramPraca {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProgramPraca;component/colorsmanager.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ProgramPraca;V1.0.0.0;component/colorsmanager.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\ColorsManager.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -78,7 +78,7 @@ namespace ProgramPraca {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProgramPraca;component/columnmanager.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ProgramPraca;V1.0.0.0;component/columnmanager.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\ColumnManager.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

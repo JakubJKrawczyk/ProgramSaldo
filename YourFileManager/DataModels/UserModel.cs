@@ -19,5 +19,7 @@ namespace ProgramPraca
         public string UserPassword { get; set; }
         [BsonElement("Typ"), BsonRepresentation(BsonType.String)]
         public string UserType { get; set; }
+        [BsonElement("Prawa"), BsonRepresentation(BsonType.String)]
+        public string Privilages { get; set; }
     }
 }

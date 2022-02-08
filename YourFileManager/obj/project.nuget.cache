@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JQcggujMCPo2t2ef0vt2d2vXEnlXx0hh1h9KJ6auVxqaaerDH2zogmfMXB9TKn/XwFdeSPp6OhwoEMEF6dnkyA==",
+  "dgSpecHash": "xQIHcBlaAVOVvd3GozYm+CM9Rczaav14lBHXdzYG4LPHd4FiC9AM9EEMqscIO8G1TF28C2h4CHOz76nwHeY18w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jakub\\Desktop\\Aktualne projekty\\YourFileManager\\YourFileManager\\ProgramPraca.csproj",
   "expectedPackageFiles": [
@@ -19,11 +19,7 @@
     "C:\\Users\\Jakub\\.nuget\\packages\\sharpcompress\\0.30.1\\sharpcompress.0.30.1.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\system.componentmodel.annotations\\4.6.0\\system.componentmodel.annotations.4.6.0.nupkg.sha512",
-    "C:\\Users\\Jakub\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
-    "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512",
-    "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\Jakub\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+    "C:\\Users\\Jakub\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }
