@@ -19,17 +19,22 @@ namespace ProgramPraca
     public partial class Main : Window
     {
         public static DataGrid dt = new();
-
-        public Main()
+        public static BsonDocument User { get; set; }
+        public static DateTime SelectedDate { get; set; }
+        public static List<string> months = new() {"Styczeń","Luty","Marzec","Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Pażdziernik", "Listopad", "Grudzień" };
+        public Main(BsonDocument user)
         {
             InitializeComponent();
+            User = user;
             dt = dtGrid;
+            SelectedDate = DateTime.Now;
+            
 
-            if (UserHolder.User.UserType == "administrator")
+            if (User["Typ"] == "administrator")
             {
                 ButtonManageColors.Visibility = Visibility.Hidden; 
 
-            }else if(UserHolder.User.UserType == "superadministrator")
+            }else if(User["Typ"] == "superadministrator")
             {
 
             }
@@ -40,9 +45,12 @@ namespace ProgramPraca
                 ButtonManageColors.Visibility = Visibility.Hidden;
             }
 
+
+            UpdateDisplayOfSelectedDate(SelectedDate);
+
             try
             {
-                Mongo.FillDataGrid(CalendarMonthSelection.SelectedDate.Value, dt);
+                Mongo.FillDataGrid(SelectedDate, dt);
 
             }
             catch (Exception e)
@@ -63,7 +71,7 @@ namespace ProgramPraca
 
         private void ColumnManager(object sender, RoutedEventArgs e)
         {
-            ColumnManager w = new ColumnManager(CalendarMonthSelection.SelectedDate.Value);
+            ColumnManager w = new ColumnManager(SelectedDate);
             w.Show();
 
         }
@@ -86,9 +94,8 @@ namespace ProgramPraca
         {
             DataRowView row = (DataRowView)dt.SelectedItem;
             DataGridCell cell = e.EditingElement as DataGridCell;
-            DateTime date = CalendarMonthSelection.SelectedDate.Value;
             
-            var collection = Mongo.Database.GetCollection<BsonDocument>($"{Mongo.CollectionName}-{date.Year}-{date.Month}");
+            var collection = Mongo.Database.GetCollection<BsonDocument>($"{Mongo.CollectionName}-{SelectedDate.Year}-{SelectedDate.Month}");
 
             if (row[0].ToString() == "")
             {
@@ -143,7 +150,10 @@ namespace ProgramPraca
 
         }
 
-
+        public void UpdateDisplayOfSelectedDate(DateTime newDate)
+        {
+            CalendarDate.Content = $"{months[newDate.Month-1]} {newDate.Year}";
+        }
 
 
 
@@ -152,8 +162,7 @@ namespace ProgramPraca
 
             if (e.Key == Key.Enter)
             {
-                DateTime date = CalendarMonthSelection.SelectedDate.Value;
-                Mongo.FillDataGrid(date, dt);
+                Mongo.FillDataGrid(SelectedDate, dt);
             }
         }
 
@@ -168,15 +177,15 @@ namespace ProgramPraca
             
             if (Key.Delete == e.Key)
             {
-                DateTime date = CalendarMonthSelection.SelectedDate.Value;
+
                 if (dt.Items.Count == 2) return;
 
                 DataRowView row = dt.SelectedItem as DataRowView;
-                IMongoCollection<BsonDocument> collection = Mongo.Database.GetCollection<BsonDocument>($"{Mongo.CollectionName}-{date.Year}-{date.Month}");
+                IMongoCollection<BsonDocument> collection = Mongo.Database.GetCollection<BsonDocument>($"{Mongo.CollectionName}-{SelectedDate.Year}-{SelectedDate.Month}");
                 ObjectId id = new ObjectId(row.Row[0].ToString());
                 FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq("_id", id);
                 collection.DeleteOne(filter);
-                Mongo.FillDataGrid(date, dt);
+                Mongo.FillDataGrid(SelectedDate, dt);
             }
         }
 
@@ -187,33 +196,60 @@ namespace ProgramPraca
             w.Show();
         }
 
-        private void OnDateChange(object sender, DependencyPropertyChangedEventArgs e)
+      
+
+        private void ManageColors(object sender, RoutedEventArgs e)
         {
-            if (Mongo.CheckIfMonthCollectonExists((DateTime)e.NewValue))
+            ColorsManager w = new();
+            w.Show();
+            
+        }
+
+        private void AddMonth(object sender, RoutedEventArgs e)
+        {
+            SelectedDate = SelectedDate.AddMonths(1);
+            UpdateDisplayOfSelectedDate(SelectedDate);
+            if (Mongo.CheckIfMonthCollectonExists(SelectedDate))
             {
-                var currentDate = (DateTime)e.NewValue;
-                Mongo.FillDataGrid(currentDate, dt);
+                
+                Mongo.FillDataGrid(SelectedDate, dt);
 
             }
             else
             {
-                var currentDate = (DateTime)e.NewValue;
+                var currentDate = SelectedDate;
 
-                var previousDate = (DateTime)e.OldValue;
-                PodOknaMain.PopUpAskCreateCollection w = new PodOknaMain.PopUpAskCreateCollection(CalendarMonthSelection, previousDate, currentDate);
+                var previousDate = SelectedDate.AddMonths(-1);
+                PodOknaMain.PopUpAskCreateCollection w = new PodOknaMain.PopUpAskCreateCollection(ref CalendarDate, previousDate, currentDate);
+                w.Show();
 
+
+
+            }
+
+        }
+
+        private void DecreaseMonth(object sender, RoutedEventArgs e)
+        {
+            SelectedDate = SelectedDate.AddMonths(-1);
+            UpdateDisplayOfSelectedDate(SelectedDate);
+            if (Mongo.CheckIfMonthCollectonExists(SelectedDate))
+            {
+
+                Mongo.FillDataGrid(SelectedDate, dt);
+
+            }
+            else
+            {
+                var currentDate = SelectedDate;
+
+                var previousDate = SelectedDate.AddMonths(1);
+                PodOknaMain.PopUpAskCreateCollection w = new PodOknaMain.PopUpAskCreateCollection(ref CalendarDate, previousDate, currentDate);
+                w.Show();
 
 
 
             }
         }
-
-        private void ManageColors(object sender, RoutedEventArgs e)
-        {
-            Window w = new();
-            
-        }
-
-      
     }
 }

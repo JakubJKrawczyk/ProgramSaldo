@@ -53,7 +53,7 @@ namespace ProgramPraca.Data
             
             var file = File.AppendText(LogsPath);
             
-            file.Write($"{DateTime.Now}: Użytkownik {UserHolder.User.UserLogin} {_action} \n" +
+            file.Write($"{DateTime.Now}: Użytkownik {Main.User["Login"]} {_action} \n" +
                 $"----------------------------------------------------------------------------\n");
             _action = "";
             file.Flush();

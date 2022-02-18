@@ -13,9 +13,13 @@
         "packagesPath": "C:\\Users\\Jakub\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Jakub\\Desktop\\Aktualne projekty\\YourFileManager\\YourFileManager\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\WPF\\19.4.0.38\\ToolboxNuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Jakub\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Syncfusion Toolbox for WPF.config"
         ],
         "originalTargetFrameworks": [
           "net5.0-windows7.0"
@@ -71,6 +75,10 @@
             "PropertyTools.Wpf": {
               "target": "Package",
               "version": "[3.1.0, )"
+            },
+            "syncfusion.ui.wpf.net": {
+              "target": "Package",
+              "version": "[19.4.0.38, )"
             }
           },
           "imports": [

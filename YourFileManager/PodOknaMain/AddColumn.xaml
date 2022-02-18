@@ -15,7 +15,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="23,115,0,0" Text="Wybierz przynależność:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13"/>
         <ComboBox Name="ComboBoxOwnerType" HorizontalAlignment="Center" Margin="0,112,0,0" VerticalAlignment="Top" Width="200" BorderBrush="White" Background="White"/>
         <CheckBox Name="CheckBoxIsEnum" Content="Typ wyliczeniowy" HorizontalAlignment="Left" Margin="175,139,0,0" VerticalAlignment="Top" Click="CheckBoxIsEnum_Click"/>
-        <ListBox Name="ListBoxEnumValues" Margin="118,159,232,95" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="OnSelectChange"/>
+        <ListBox Name="ListBoxEnumValues" Margin="118,159,232,95" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="OnSelectChange" Height="130" Width="200"/>
         <TextBox Name="TextBoxNewEnumValue" HorizontalAlignment="Left" Margin="175,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="20"/>
         <Button x:Name="plus" Content="+" HorizontalAlignment="Left" Margin="315,289,0,0" VerticalAlignment="Top" Width="20" Height="25" BorderBrush="White" Foreground="#FF87BC5E" Click="PlusPressed" BorderThickness="0,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,0,0,0" FlowDirection="LeftToRight" FontStyle="Normal" FontStretch="Normal" FontWeight="Black" FontSize="20" Background="White"/>
         <Button x:Name="minus" Content="-" HorizontalAlignment="Left" Margin="348,289,0,0" VerticalAlignment="Top" Width="20" Height="25" BorderBrush="White" Foreground="#FF87BC5E" FontSize="20" Click="MinusPressed" BorderThickness="0,0,0,0" Background="White" FontWeight="Black">

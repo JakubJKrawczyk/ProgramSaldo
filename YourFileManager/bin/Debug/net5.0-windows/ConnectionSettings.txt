@@ -1,7 +1,5 @@
 SERVER = localhost
-USERNAME = Saldo
-PASSWORD = Saldo!@#
-DATABASE = ProgramSaldo
+DATABASE = Saldo
 TABLE = klienci
-LOGS_PATH = C:\Users\user\source\repos\YourFileManager\YourFileManager\bin\Debug\net5.0-windows\Logs.txt
-BACKUP_PATH = C:\Users\user\Documents
+LOGS_PATH = C:\Users\Jakub\Desktop\ProgramPracaKopie\Logi.txt
+BACKUP_PATH = C:\Users\Jakub\Desktop\ProgramPracaKopie

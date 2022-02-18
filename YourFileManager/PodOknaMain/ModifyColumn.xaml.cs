@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using ProgramPraca.Data;
 using System;
+using System.Collections.Generic;
 using System.Windows;
 
 namespace ProgramPraca.PodOknaMain
@@ -14,12 +15,16 @@ namespace ProgramPraca.PodOknaMain
 
     public partial class ModifyColumn : Window
     {
-        int Refresh = 0;
-        public ModifyColumn()
+        public DateTime Date { get; set; }
+
+        public IMongoCollection<BsonDocument> Collection { get; set; }
+        public ModifyColumn(DateTime date)
         {
             InitializeComponent();
-            ComboboxColumn.ItemsSource = Main.columns;
-            Refresh = 0;
+            Date = date;   
+            Collection = Mongo.Database.GetCollection<BsonDocument>($"columns-{Mongo.CollectionName}-{Date.Year}-{Date.Month}");
+            
+            ComboboxColumn.ItemsSource = Mongo.GetColumnsNamesFromCollection(Collection);
 
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
@@ -27,39 +32,30 @@ namespace ProgramPraca.PodOknaMain
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(ComboboxColumn.SelectedItem is null)
-            {
-                return;
-            }
-            var collection = Mongo.Database.GetCollection<BsonDocument>(Mongo.CollectionName);
+            if (ComboboxColumn.SelectedItem is null) return;
+            
+            var collection = Mongo.Database.GetCollection<BsonDocument>($"{Mongo.CollectionName}-{Date.Year}-{Date.Month}");
 
             UpdateDefinition<BsonDocument> update = Builders<BsonDocument>.Update.Rename(ComboboxColumn.SelectedItem.ToString(), TextBoxNewName.Text);
+            collection.UpdateManyAsync($"{{}}", update);
 
-            collection.UpdateMany($"{{}}", update);
-            
-            Mongo.FillDataGrid(Main.dt);
-            Main.FillListOfColumns();
+            FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq("collectioName", ComboboxColumn.SelectedItem.ToString());
+            update = Builders<BsonDocument>.Update.Set("collectioName", ComboboxColumn.SelectedItem.ToString());
+            Collection.UpdateOneAsync(filter, update);
+            Mongo.FillDataGrid(Date,Main.dt);
 
             //logs
             Logger.ColumnOldName = ComboboxColumn.SelectedItem.ToString();
             Logger.ColumnNewName = TextBoxNewName.Text;
             Logger.CreateAction(5);
             //
-            ComboboxColumn.ItemsSource = Main.columns;
-            var window = GetWindow(this);
-            Refresh = 1;
-            window.Close();
+            ComboboxColumn.Items.Clear();
+            ComboboxColumn.ItemsSource = Mongo.GetColumnsNamesFromCollection(Collection);
+            ComboboxColumn.SelectedItem = ComboboxColumn.Items[0];
+            TextBoxNewName.Text = "";
 
         }
 
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            if (Refresh == 1)
-            {
-                var newWindow = new ModifyColumn();
-
-                newWindow.Show();
-            }
-        }
+        
     };
 }

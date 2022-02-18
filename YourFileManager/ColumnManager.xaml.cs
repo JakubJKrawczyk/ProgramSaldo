@@ -34,14 +34,14 @@ namespace ProgramPraca
         }
         private void ModifyColumn(object sender, RoutedEventArgs e)
         {
-            PodOknaMain.ModifyColumn W = new();
+            PodOknaMain.ModifyColumn W = new PodOknaMain.ModifyColumn(Date);
             W.Show();
             Close();
         }
 
         private void DellColumn(object sender, RoutedEventArgs e)
         {
-            PodOknaMain.DellColumn W = new();
+            PodOknaMain.DellColumn W = new PodOknaMain.DellColumn(Date);
             W.Show();
             Close();
         }

@@ -6,15 +6,14 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "Aspose.Cells/22.1.0": {
+      "DataGridExtensions/2.5.13": {
         "dependencies": {
-          "System.Drawing.Common": "4.7.0",
-          "System.Text.Encoding.CodePages": "4.7.0"
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.39"
         },
         "runtime": {
-          "lib/net50/Aspose.Cells.dll": {
-            "assemblyVersion": "22.1.0.0",
-            "fileVersion": "22.1.0.0"
+          "lib/net5.0-windows7.0/DataGridExtensions.dll": {
+            "assemblyVersion": "2.5.13.0",
+            "fileVersion": "2.5.13.0"
           }
         }
       },
@@ -26,23 +25,11 @@
           }
         }
       },
-      "Microsoft.NETCore.Platforms/3.1.0": {},
-      "Microsoft.Win32.SystemEvents/4.7.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "3.1.0"
-        },
+      "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {
-            "assemblyVersion": "4.0.2.0",
-            "fileVersion": "4.700.19.56404"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "4.0.2.0",
-            "fileVersion": "4.700.19.56404"
+          "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.39.4716"
           }
         }
       },
@@ -174,6 +161,26 @@
           }
         }
       },
+      "PropertyTools/3.1.0": {
+        "runtime": {
+          "lib/netstandard2.0/PropertyTools.dll": {
+            "assemblyVersion": "3.1.0.0",
+            "fileVersion": "3.1.0.0"
+          }
+        }
+      },
+      "PropertyTools.Wpf/3.1.0": {
+        "dependencies": {
+          "PropertyTools": "3.1.0",
+          "System.ComponentModel.Annotations": "4.6.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/PropertyTools.Wpf.dll": {
+            "assemblyVersion": "3.1.0.0",
+            "fileVersion": "3.1.0.0"
+          }
+        }
+      },
       "SharpCompress/0.30.1": {
         "runtime": {
           "lib/net5.0/SharpCompress.dll": {
@@ -183,29 +190,11 @@
         }
       },
       "System.Buffers/4.5.1": {},
-      "System.Drawing.Common/4.7.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "3.1.0",
-          "Microsoft.Win32.SystemEvents": "4.7.0"
-        },
+      "System.ComponentModel.Annotations/4.6.0": {
         "runtime": {
-          "lib/netstandard2.0/System.Drawing.Common.dll": {
-            "assemblyVersion": "4.0.0.1",
-            "fileVersion": "4.6.26919.2"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll": {
-            "rid": "unix",
-            "assetType": "runtime",
-            "assemblyVersion": "4.0.2.0",
-            "fileVersion": "4.700.19.56404"
-          },
-          "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "4.0.2.0",
-            "fileVersion": "4.700.19.56404"
+          "lib/netstandard2.1/System.ComponentModel.Annotations.dll": {
+            "assemblyVersion": "4.3.0.0",
+            "fileVersion": "4.700.19.46214"
           }
         }
       },
@@ -216,54 +205,16 @@
             "fileVersion": "5.0.20.51904"
           }
         }
-      },
-      "System.Text.Encoding.CodePages/4.7.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "3.1.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {
-            "assemblyVersion": "4.1.3.0",
-            "fileVersion": "4.700.19.56404"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/netcoreapp2.0/System.Text.Encoding.CodePages.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "4.1.3.0",
-            "fileVersion": "4.700.19.56404"
-          }
-        }
-      },
-      "WindowsAPICodePack-Core/1.1.1": {
-        "runtime": {
-          "lib/Microsoft.WindowsAPICodePack.dll": {
-            "assemblyVersion": "1.1.0.0",
-            "fileVersion": "1.1.0.0"
-          }
-        }
-      },
-      "WindowsAPICodePack-Shell/1.1.1": {
-        "dependencies": {
-          "WindowsAPICodePack-Core": "1.1.1"
-        },
-        "runtime": {
-          "lib/Microsoft.WindowsAPICodePack.Shell.dll": {
-            "assemblyVersion": "1.1.0.0",
-            "fileVersion": "1.1.0.0"
-          }
-        }
       }
     }
   },
   "libraries": {
-    "Aspose.Cells/22.1.0": {
+    "DataGridExtensions/2.5.13": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-amJUACq7Q/2VFAUhThvH3XqaiyfIATcfK9RI6f9lXq9yl2rlrOBi3qCBa42k6fPwDZPf0VrIO9Z7VUHF4n0dTQ==",
-      "path": "aspose.cells/22.1.0",
-      "hashPath": "aspose.cells.22.1.0.nupkg.sha512"
+      "sha512": "sha512-9p9c/NuFYddjt+klDWqw7SeA5xvUrlcMfAUge/lEiv9Nid0oJytL+/n3EE/6vnjBxWKepBwfPZP/yGDvfDiDzQ==",
+      "path": "datagridextensions/2.5.13",
+      "hashPath": "datagridextensions.2.5.13.nupkg.sha512"
     },
     "DnsClient/1.4.0": {
       "type": "package",
@@ -272,19 +223,12 @@
       "path": "dnsclient/1.4.0",
       "hashPath": "dnsclient.1.4.0.nupkg.sha512"
     },
-    "Microsoft.NETCore.Platforms/3.1.0": {
+    "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
-      "path": "microsoft.netcore.platforms/3.1.0",
-      "hashPath": "microsoft.netcore.platforms.3.1.0.nupkg.sha512"
-    },
-    "Microsoft.Win32.SystemEvents/4.7.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-mtVirZr++rq+XCDITMUdnETD59XoeMxSpLRIII7JRI6Yj0LEDiO1pPn0ktlnIj12Ix8bfvQqQDMMIF9wC98oCA==",
-      "path": "microsoft.win32.systemevents/4.7.0",
-      "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
+      "sha512": "sha512-8PZKqw9QOcu42xk8puY4P1+EXHL9YGOR9b7qhaYx5cILHul456H073tj99vyPcCt0W0781T9RwHqkx507ZyUpQ==",
+      "path": "microsoft.xaml.behaviors.wpf/1.1.39",
+      "hashPath": "microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
     },
     "MongoDB.Bson/2.14.1": {
       "type": "package",
@@ -335,6 +279,20 @@
       "path": "ookii.dialogs.wpf/5.0.1",
       "hashPath": "ookii.dialogs.wpf.5.0.1.nupkg.sha512"
     },
+    "PropertyTools/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NAbA0+9rXe3L372/A4QOuCt0UCw9iPKI4Hkeu8PycC9TSJmEpsAgRb/qdXaPLkE+Z3zT3n1lPIGL7Oi+WBltqg==",
+      "path": "propertytools/3.1.0",
+      "hashPath": "propertytools.3.1.0.nupkg.sha512"
+    },
+    "PropertyTools.Wpf/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-e1CyxgZ+6RUeEHXTU0+ozNgdQIYciouu4I/9ygSaGn6v8ftzJ/us/FOlZyHyhf7QNakGH0Jds6eMZ45CM3ES3w==",
+      "path": "propertytools.wpf/3.1.0",
+      "hashPath": "propertytools.wpf.3.1.0.nupkg.sha512"
+    },
     "SharpCompress/0.30.1": {
       "type": "package",
       "serviceable": true,
@@ -349,12 +307,12 @@
       "path": "system.buffers/4.5.1",
       "hashPath": "system.buffers.4.5.1.nupkg.sha512"
     },
-    "System.Drawing.Common/4.7.0": {
+    "System.ComponentModel.Annotations/4.6.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-v+XbyYHaZjDfn0ENmJEV1VYLgGgCTx1gnfOBcppowbpOAriglYgGCvFCPr2EEZyBvXlpxbEsTwkOlInl107ahA==",
-      "path": "system.drawing.common/4.7.0",
-      "hashPath": "system.drawing.common.4.7.0.nupkg.sha512"
+      "sha512": "sha512-pOd+UhZ3X8xfwKDlgAzowUJNjp8VYVmOHZm++vCd0kq1HZ0zK3mNo2yRXjYgv7Ik/Xi43fmJfND2PLEsQSALCg==",
+      "path": "system.componentmodel.annotations/4.6.0",
+      "hashPath": "system.componentmodel.annotations.4.6.0.nupkg.sha512"
     },
     "System.Runtime.CompilerServices.Unsafe/5.0.0": {
       "type": "package",
@@ -362,27 +320,6 @@
       "sha512": "sha512-ZD9TMpsmYJLrxbbmdvhwt9YEgG5WntEnZ/d1eH8JBX9LBp+Ju8BSBhUGbZMNVHHomWo2KVImJhTDl2hIgw/6MA==",
       "path": "system.runtime.compilerservices.unsafe/5.0.0",
       "hashPath": "system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
-    },
-    "System.Text.Encoding.CodePages/4.7.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-aeu4FlaUTemuT1qOd1MyU4T516QR4Fy+9yDbwWMPHOHy7U8FD6SgTzdZFO7gHcfAPHtECqInbwklVvUK4RHcNg==",
-      "path": "system.text.encoding.codepages/4.7.0",
-      "hashPath": "system.text.encoding.codepages.4.7.0.nupkg.sha512"
-    },
-    "WindowsAPICodePack-Core/1.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-GoURoQuE7ea7B7q24YRTBfZbsNO7ZtwSyBHbM8zO0ynwfjAGC0bbAmVrDvZ6HbWtqqOt6QTzdmYnj2WJglb5JQ==",
-      "path": "windowsapicodepack-core/1.1.1",
-      "hashPath": "windowsapicodepack-core.1.1.1.nupkg.sha512"
-    },
-    "WindowsAPICodePack-Shell/1.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-CPFamhL3jPo8O6+ErGsLS4LK3DWP5ncxqhbzpPnYkIW9rjatunUij35iTjprbr9mlYR/5Pbguw21MwSmTOKR4g==",
-      "path": "windowsapicodepack-shell/1.1.1",
-      "hashPath": "windowsapicodepack-shell.1.1.1.nupkg.sha512"
     }
   }
 }

@@ -21,13 +21,14 @@ namespace ProgramPraca.PodOknaMain
     {
         public DateTime PreviousDate { get; set; }
         public DateTime CurrentDate { get; set; }
-        public Calendar Calendar { get; set; }
-        public PopUpAskCreateCollection(Calendar calendar, DateTime previous, DateTime current)
+        public DateTime SelectedDate { get; set; }
+        public Label DateLabel { get; set; }
+        public PopUpAskCreateCollection(ref Label dateLabel, DateTime previous, DateTime current)
         {
             InitializeComponent();
             PreviousDate = previous;
             CurrentDate = current;
-            Calendar = calendar;
+            DateLabel = dateLabel;
         }
 
         private void Yes(object sender, RoutedEventArgs e)
@@ -39,8 +40,9 @@ namespace ProgramPraca.PodOknaMain
 
         private void No(object sender, RoutedEventArgs e)
         {
-            Calendar.SelectedDate = PreviousDate;
-            Calendar.DisplayDate = PreviousDate;
+            Main.SelectedDate = PreviousDate;
+            DateLabel.Content = $"{Main.months[PreviousDate.Month - 1]} {PreviousDate.Year}";
+
             Close();
         }
     }

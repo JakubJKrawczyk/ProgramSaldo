@@ -19,7 +19,7 @@
         <CheckBox x:Name="CheckBoxKadry" Content="Kadry" HorizontalAlignment="Left" Height="20" Margin="434,212,0,0" VerticalAlignment="Top" Width="67"/>
         <CheckBox x:Name="CheckBoxFaktury" Content="Faktury" HorizontalAlignment="Left" Height="20" Margin="342,212,0,0" VerticalAlignment="Top" Width="67"/>
         <Label Content="Prawa użytkownika:" HorizontalAlignment="Left" Height="40" Margin="65,202,0,0" VerticalAlignment="Top" Width="181" FontSize="20"/>
-        <Label Name="LabelStatus" Content="Label" HorizontalAlignment="Center" Margin="0,0,0,-1" VerticalAlignment="Bottom" Width="700" Height="21" FontSize="10"/>
+        <Label Name="LabelStatus" Content="Label" HorizontalAlignment="Center" Margin="0,364,0,0" VerticalAlignment="Top" Width="649" Height="21" FontSize="10"/>
 
     </Grid>
 </Window>

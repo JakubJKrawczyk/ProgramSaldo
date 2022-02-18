@@ -6,6 +6,7 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>ProgramPraca</AssemblyName>
     <RootNamespace>ProgramPraca</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +25,7 @@
     <PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.2" />
     <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
     <PackageReference Include="PropertyTools.Wpf" Version="3.1.0" />
+    <PackageReference Include="syncfusion.ui.wpf.net" Version="19.4.0.38" />
   </ItemGroup>
 
   <ItemGroup>

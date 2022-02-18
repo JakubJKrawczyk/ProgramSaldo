@@ -24,13 +24,13 @@ namespace ProgramPraca
         public MyAccount()
         {
             InitializeComponent();
-            LabelUserName.Text = UserHolder.User.UserLogin;
-            TextBoxNewPassword.Text = UserHolder.User.UserPassword;
+            LabelUserName.Text = Main.User["Login"].ToString();
+            TextBoxNewPassword.Text = Main.User["Haslo"].ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            IMongoCollection<BsonDocument> users = Mongo.Database.GetCollection<BsonDocument>("user");
+            IMongoCollection<BsonDocument> users = Mongo.Database.GetCollection<BsonDocument>("users");
             UpdateDefinition<BsonDocument> update = Builders<BsonDocument>.Update.Set("Haslo", TextBoxNewPassword.Text);
             FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq("Login", LabelUserName.Text);
             try

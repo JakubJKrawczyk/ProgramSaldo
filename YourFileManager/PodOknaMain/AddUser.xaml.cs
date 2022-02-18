@@ -15,11 +15,14 @@ namespace ProgramPraca.PodOknaMain
        readonly List<CheckBox> checkBoxes = new();
         public AddUser()
         {
+            
+
+            InitializeComponent();
+
+
             checkBoxes.Add(CheckBoxFaktury);
             checkBoxes.Add(CheckBoxKadry);
             checkBoxes.Add(CheckBoxKsiegi);
-
-            InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             List<string> userTypes = new();
             userTypes.Add("uzytkownik");
@@ -41,7 +44,7 @@ namespace ProgramPraca.PodOknaMain
                 {
                     if (checkbox.IsChecked == true)
                     {
-                        privilages += $"{checkbox.Name.Trim().ToLower()};";
+                        privilages += $"{checkbox.Content.ToString().Trim().ToLower()};";
                     }
                 }
                 UserModel newUser = new();
@@ -50,9 +53,9 @@ namespace ProgramPraca.PodOknaMain
                 newUser.UserPassword = TextNewPassword.Text;
                 newUser.Privilages = privilages;
                 newUser.UserType = ComboBoxUserType.SelectedItem.ToString();
-                IMongoCollection<BsonDocument> users = Mongo.Database.GetCollection<BsonDocument>("user");
+                IMongoCollection<BsonDocument> users = Mongo.Database.GetCollection<BsonDocument>("users");
                 users.InsertOne(newUser.ToBsonDocument());
-                LabelStatus.Name = $"Sukces! Dodałeś nowego użytkownika! \nOto jego dane:\n{newUser.ToJson()}";
+                LabelStatus.Content = $"Sukces! Dodałeś nowego użytkownika! \nOto jego dane:\n{newUser.ToJson()}";
                 Logger.AddedUser = newUser.UserLogin;
                 Logger.CreateAction(3);
 

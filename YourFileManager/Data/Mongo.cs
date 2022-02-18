@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace ProgramPraca
@@ -29,7 +31,7 @@ namespace ProgramPraca
 
         public static void  FillDataGrid(DateTime date, DataGrid dt, FilterDefinition<BsonDocument> Filter = null)
         {
-            var klienciCollection = Database.GetCollection<dynamic>($"{CollectionName }-{date.Year}-{date.Month}");
+            var klienciCollection = Database.GetCollection<dynamic>($"{CollectionName}-{date.Year}-{date.Month}");
 
 
             if (Filter == null)
@@ -75,9 +77,24 @@ namespace ProgramPraca
         public static bool CheckIfMonthCollectonExists(DateTime date)
         {
 
-            return Mongo.Database.GetCollection<BsonDocument>($"{CollectionName }-{date.Year}-{date.Month}") == null ? true : false;
-        }
+            var filter = new BsonDocument();
+            filter.Add("name", $"{Mongo.CollectionName}-{date.Year}-{date.Month}");
+            var listOfCollectionNames = Mongo.Database.ListCollections(new ListCollectionsOptions { Filter = filter});
 
+            return listOfCollectionNames.Any();
+        }
+        public static List<string> GetColumnsNamesFromCollection(IMongoCollection<BsonDocument> collection)
+        {
+            var columns = collection.Find<BsonDocument>($"{{}}").ToList();
+
+            List<string> columnNames = new List<string>(); 
+            foreach (var column in columns)
+            {
+                columnNames.Add(column["columnName"].ToString());
+            }
+
+            return columnNames;
+        }
         //
         static void MakeBackup()
         {
@@ -92,6 +109,13 @@ namespace ProgramPraca
 
                 List<BsonDocument> clients = collection.Find($"{{}}").ToList();
                 string path = $"{BackupPath}/przywracanie/{DateTime.Now.Day}-{DateTime.Now.Month}-{DateTime.Now.Year}-{DateTime.Now.Hour}-{DateTime.Now.Minute}/kopiazapasowa-{CollectionName }-{DateTime.Now.Day}-{DateTime.Now.Month}-{DateTime.Now.Year}-{DateTime.Now.Hour}-{DateTime.Now.Minute}.txt";
+                if (!Directory.Exists($"{BackupPath}/przywracanie/{DateTime.Now.Day}-{DateTime.Now.Month}-{DateTime.Now.Year}-{DateTime.Now.Hour}-{DateTime.Now.Minute}"))
+                {
+                    Directory.CreateDirectory($"{BackupPath}/przywracanie/{DateTime.Now.Day}-{DateTime.Now.Month}-{DateTime.Now.Year}-{DateTime.Now.Hour}-{DateTime.Now.Minute}");
+
+                }
+
+                File.Create(path).Close();
                 foreach (var doc in clients)
                 {
                     File.AppendAllText(path, doc.ToJson());
@@ -187,8 +211,30 @@ namespace ProgramPraca
         public static void MakeConnection()
         {
             LoadConnectionSettings();
-            Client = new MongoClient($"mongodb://{ServerName}:{Port}");
+            
+            Client = new MongoClient(new MongoClientSettings
+            {
+                Server = new MongoServerAddress($"{ServerName}",int.Parse(Port)),
+                SocketTimeout = new TimeSpan(0, 0, 0, 2),
+                WaitQueueTimeout = new TimeSpan(0, 0, 0, 2),
+                ConnectTimeout = new TimeSpan(0, 0, 0, 2),
+                ServerSelectionTimeout = new TimeSpan(0, 0,2)
+            });
+            Client.StartSessionAsync();
+
             Database = Client.GetDatabase(DataBaseName);
+            
+        }
+        public static void InsertAdmin()
+        {
+            var users = Database.GetCollection<BsonDocument>("users");
+            BsonDocument admin = new BsonDocument();
+            admin.Add("Login", "admin");
+            admin.Add("Haslo", "123");
+            admin.Add("_id", new BsonObjectId(new ObjectId()));
+            admin.Add("Typ", "superadministrator");
+            admin.Add("Prawa", "faktury;księgi;kadry");
+            users.InsertOneAsync(admin);
         }
         public static void LoadConnectionSettings()
         {
@@ -204,6 +250,9 @@ namespace ProgramPraca
                     if (splitted[0] == "DATABASE")
                     {
                         Mongo.DataBaseName = splitted[2];
+                    }if (splitted[0] == "TABLE")
+                    {
+                        Mongo.CollectionName = splitted[2];
                     }
 
                     if (splitted[0] == "LOGS_PATH")

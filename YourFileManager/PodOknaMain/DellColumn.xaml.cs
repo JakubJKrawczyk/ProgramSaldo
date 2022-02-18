@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using ProgramPraca.Data;
+using System;
 using System.Windows;
 
 namespace ProgramPraca.PodOknaMain
@@ -10,9 +11,12 @@ namespace ProgramPraca.PodOknaMain
     /// </summary>
     public partial class DellColumn : Window
     {
-        public DellColumn()
+        public DateTime Date { get; set; }
+
+        public DellColumn(DateTime date)
         {
             InitializeComponent();
+            Date = date;    
             
         }
 
@@ -25,8 +29,8 @@ namespace ProgramPraca.PodOknaMain
 
                 collection.UpdateMany($"{{}}", update);
                 Mongo.ChangeCount($"{{}}", false, collection);
-                Mongo.FillDataGrid(Main.dt);
-                Main.FillListOfColumns();
+                Mongo.FillDataGrid(Date, Main.dt);
+                
                 //logs
                 Logger.DeletedColumn = ComboboxColumn.SelectedItem.ToString();
                 Logger.CreateAction(2);

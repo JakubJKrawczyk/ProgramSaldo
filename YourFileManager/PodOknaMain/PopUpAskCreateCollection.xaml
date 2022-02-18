@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgramPraca.PodOknaMain"
         mc:Ignorable="d"
-        Title="PopUpAskCreateCollection" Height="120" Width="320" ResizeMode="NoResize">
+        Title="PopUpAskCreateCollection" Height="150" Width="320" ResizeMode="NoResize">
     <Grid>
         <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="20" Text="Czy chcesz utworzyć tabele dla tego miesiąca?&#xD;&#xA;"/>
         <Button Content="Tak" HorizontalAlignment="Left" Margin="60,67,0,0" VerticalAlignment="Top" Width="40" Height="20" Background="#FFFBFBFB" BorderBrush="#FFAEAEAE" Foreground="#FF87BC5E" Click="Yes"/>
