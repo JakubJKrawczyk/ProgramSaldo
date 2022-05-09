@@ -11,26 +11,39 @@ namespace ProgramPraca.PodOknaMain
     /// </summary>
     public partial class DellColumn : Window
     {
-        public DateTime Date { get; set; }
 
-        public DellColumn(DateTime date)
+        public DellColumn()
         {
             InitializeComponent();
-            Date = date;    
             
+
+            if (Mongo.CheckIfCollectonExists($"columns-{Mongo.CollectionName}-{Main.SelectedDate.Year}-{Main.SelectedDate.Month}")) { 
+                IMongoCollection<BsonDocument> collection = Mongo.Database.GetCollection<BsonDocument>($"columns-{Mongo.CollectionName}-{Main.SelectedDate.Year}-{Main.SelectedDate.Month}");
+                var docs = collection.FindAsync($"{{}}").Result.ToList();
+                
+                foreach (BsonDocument column in docs)
+                {
+                    ComboboxColumn.Items.Add(column["columnName"]);
+                }
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if(ComboboxColumn.SelectedItem is not null)
             {
-                IMongoCollection<BsonDocument> collection = Mongo.Database.GetCollection<BsonDocument>(Mongo.CollectionName);
+                IMongoCollection<BsonDocument> collection = Mongo.Database.GetCollection<BsonDocument>($"{Mongo.CollectionName}-{Main.SelectedDate.Year}-{Main.SelectedDate.Month}");
+                IMongoCollection<BsonDocument> collectionColumns = Mongo.Database.GetCollection<BsonDocument>($"columns-{Mongo.CollectionName}-{Main.SelectedDate.Year}-{Main.SelectedDate.Month}");
                 UpdateDefinition<BsonDocument> update = Builders<BsonDocument>.Update.Unset(ComboboxColumn.SelectedItem.ToString());
 
-                collection.UpdateMany($"{{}}", update);
+                collection.UpdateManyAsync($"{{}}", update);
                 Mongo.ChangeCount($"{{}}", false, collection);
-                Mongo.FillDataGrid(Date, Main.dt);
+                Mongo.FillDataGrid(Main.SelectedDate, Main.dt);
+
+                FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq("columnName", ComboboxColumn.SelectedItem.ToString());
                 
+                collectionColumns.DeleteOneAsync(filter);
+
                 //logs
                 Logger.DeletedColumn = ComboboxColumn.SelectedItem.ToString();
                 Logger.CreateAction(2);

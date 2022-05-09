@@ -19,29 +19,27 @@ namespace ProgramPraca
     /// </summary>
     public partial class ColumnManager : Window
     {
-        public DateTime Date { get; set; }
-        public ColumnManager(DateTime date)
+        public ColumnManager()
         {
             InitializeComponent();
-            Date = date;
         }
 
         private void AddColumn(object sender, RoutedEventArgs e)
         {
-            PodOknaMain.AddColumn W = new PodOknaMain.AddColumn(Date);
+            PodOknaMain.AddColumn W = new PodOknaMain.AddColumn();
             W.Show();
             Close();
         }
         private void ModifyColumn(object sender, RoutedEventArgs e)
         {
-            PodOknaMain.ModifyColumn W = new PodOknaMain.ModifyColumn(Date);
+            PodOknaMain.ModifyColumn W = new PodOknaMain.ModifyColumn();
             W.Show();
             Close();
         }
 
         private void DellColumn(object sender, RoutedEventArgs e)
         {
-            PodOknaMain.DellColumn W = new PodOknaMain.DellColumn(Date);
+            PodOknaMain.DellColumn W = new PodOknaMain.DellColumn();
             W.Show();
             Close();
         }

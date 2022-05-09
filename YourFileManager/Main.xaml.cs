@@ -71,7 +71,7 @@ namespace ProgramPraca
 
         private void ColumnManager(object sender, RoutedEventArgs e)
         {
-            ColumnManager w = new ColumnManager(SelectedDate);
+            ColumnManager w = new ColumnManager();
             w.Show();
 
         }

@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NET;NET5_0;NETCOREAPP
 C:\Users\Jakub\Desktop\Aktualne projekty\YourFileManager\YourFileManager\App.xaml
-141443963685
+14-51061060
 21-71256838
-22-613681375
-2151939412433
-ColorsManager.xaml;ColumnManager.xaml;Login.xaml;Main.xaml;MyAccount.xaml;PodOknaMain\AddColumn.xaml;PodOknaMain\AddUser.xaml;PodOknaMain\DellColumn.xaml;PodOknaMain\DellUser.xaml;PodOknaMain\Filtr.xaml;PodOknaMain\ModifyColumn.xaml;PodOknaMain\PopUpAskCreateCollection.xaml;Settings.xaml;UserManager.xaml;
+221761538456
+307910182314
+ColorsManager\ColorsManager.xaml;ColumnManager.xaml;Login.xaml;Main.xaml;MyAccount.xaml;PodOknaMain\AddColumn.xaml;PodOknaMain\AddUser.xaml;PodOknaMain\DellColumn.xaml;PodOknaMain\DellUser.xaml;PodOknaMain\Filtr.xaml;PodOknaMain\ModifyColumn.xaml;PodOknaMain\PopUpAskCreateCollection.xaml;Settings.xaml;UserManager.xaml;
 
 False
 

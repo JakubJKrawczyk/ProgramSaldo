@@ -1,14 +1,12 @@
 ﻿using MongoDB.Bson;
-
 using MongoDB.Driver;
+using Newtonsoft.Json;
 using ProgramPraca.Data;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
 
 namespace ProgramPraca
@@ -32,27 +30,61 @@ namespace ProgramPraca
         public static void  FillDataGrid(DateTime date, DataGrid dt, FilterDefinition<BsonDocument> Filter = null)
         {
             var klienciCollection = Database.GetCollection<dynamic>($"{CollectionName}-{date.Year}-{date.Month}");
-
+            dt.Columns.Clear();
 
             if (Filter == null)
             {
                 FilterDefinition<dynamic> emptyFilter = Builders<dynamic>.Filter.Empty;
                 var collectionData = klienciCollection.FindAsync(emptyFilter).Result.ToList();
-
-
-                var dataTable = ToDataTable(collectionData.OrderByDescending(item => item.count));
-                if (dataTable is not null)
+                var columnCollection = Database.GetCollection<BsonDocument>($"columns-{CollectionName}-{date.Year}-{date.Month}");
+                DataTable data = new DataTable();
+                List<dynamic> list = new List<dynamic>();
+                List<DataGridColumn> columns = new List<DataGridColumn>();
+                foreach (var column in columnCollection.Find($"{{}}").ToList())
                 {
-                    dt.ItemsSource = dataTable.DefaultView;
-                }
-                else
-                {
-                    DataTable newData = new();
-                    newData.Columns.Add("newColumn");
+                    if(column["columnType"] == "string")
+                    {
+                        DataGridTextColumn dataGridTextColumn = new DataGridTextColumn();
+                        dataGridTextColumn.Header = column["ColumnName"];
+                        
+                        columns.Add(dataGridTextColumn);
+                        
+                       
+                         
+                        
 
-                    dt.ItemsSource = newData.DefaultView;
 
+
+                        data.AcceptChanges();
+
+                        
+                    }else if (column["columnType"] == "enum")
+                    {
+
+                    }
+                    else if(column["columnType"] == "check")
+                    {
+
+                    }
                 }
+                dt.DataContext = data.DefaultView;
+                
+
+
+
+                //var dataTable = ToDataTable(collectionData.OrderByDescending(item => item.count));
+                //if (dataTable is not null)
+                //{
+                //    dt.ItemsSource = dataTable.DefaultView;
+                //}
+                //else
+                //{
+                //    DataTable newData = new();
+                //    newData.Columns.Add("newColumn");
+
+                //    dt.ItemsSource = newData.DefaultView;
+
+                //}
 
 
             }
@@ -83,7 +115,16 @@ namespace ProgramPraca
 
             return listOfCollectionNames.Any();
         }
-        public static List<string> GetColumnsNamesFromCollection(IMongoCollection<BsonDocument> collection)
+        public static bool CheckIfCollectonExists(string collectionName)
+        {
+
+            var filter = new BsonDocument();
+            filter.Add("name", $"{collectionName}");
+            var listOfCollectionNames = Mongo.Database.ListCollections(new ListCollectionsOptions { Filter = filter });
+
+            return listOfCollectionNames.Any();
+        }
+        public static List<string> GetColumnsNamesFromomColumnsCollection(IMongoCollection<BsonDocument> collection)
         {
             var columns = collection.Find<BsonDocument>($"{{}}").ToList();
 
@@ -163,7 +204,7 @@ namespace ProgramPraca
         public static DataTable ToDataTable(IEnumerable<dynamic> items)
         {
 
-
+            
             var data = items.ToArray();
             if (data.Length == 0) return null;
 
@@ -172,7 +213,7 @@ namespace ProgramPraca
             {
                 dt.Columns.Add(pair.Key, pair.Value.GetType());
             }
-
+            
 
             foreach (var pair in data)
             {

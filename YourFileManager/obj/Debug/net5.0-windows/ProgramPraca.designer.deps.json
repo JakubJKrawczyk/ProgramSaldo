@@ -189,6 +189,60 @@
           }
         }
       },
+      "Syncfusion.Licensing/19.4.0.38": {
+        "runtime": {
+          "lib/net5.0/Syncfusion.Licensing.dll": {
+            "assemblyVersion": "19.4.0.38",
+            "fileVersion": "19.4.0.38"
+          }
+        }
+      },
+      "Syncfusion.SfSkinManager.WPF/19.4.0.38": {
+        "dependencies": {
+          "Syncfusion.Licensing": "19.4.0.38"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.SfSkinManager.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          }
+        }
+      },
+      "Syncfusion.Shared.WPF/19.4.0.38": {
+        "dependencies": {
+          "Syncfusion.Licensing": "19.4.0.38"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Shared.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          }
+        }
+      },
+      "Syncfusion.Themes.FluentLight.WPF/19.4.0.38": {
+        "dependencies": {
+          "Syncfusion.Licensing": "19.4.0.38",
+          "Syncfusion.SfSkinManager.WPF": "19.4.0.38"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Themes.FluentLight.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          }
+        }
+      },
+      "Syncfusion.Tools.WPF/19.4.0.38": {
+        "dependencies": {
+          "Syncfusion.Licensing": "19.4.0.38",
+          "Syncfusion.Shared.WPF": "19.4.0.38"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Tools.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          }
+        }
+      },
       "Syncfusion.UI.WPF.NET/19.4.0.38": {
         "runtime": {
           "lib/net5.0-windows7.0/Syncfusion.Calculate.Base.dll": {
@@ -671,6 +725,41 @@
       "sha512": "sha512-XqD4TpfyYGa7QTPzaGlMVbcecKnXy4YmYLDWrU+JIj7IuRNl7DH2END+Ll7ekWIY8o3dAMWLFDE1xdhfIWD1nw==",
       "path": "sharpcompress/0.30.1",
       "hashPath": "sharpcompress.0.30.1.nupkg.sha512"
+    },
+    "Syncfusion.Licensing/19.4.0.38": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aO2/KBA53/uYDAs0cj0HYW+Hf3cYnyZUpo96IaijDoVvS+Vi9N7tEUVvnAbW84aQiJFZD5LOUxoEz18Dw74iAw==",
+      "path": "syncfusion.licensing/19.4.0.38",
+      "hashPath": "syncfusion.licensing.19.4.0.38.nupkg.sha512"
+    },
+    "Syncfusion.SfSkinManager.WPF/19.4.0.38": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Q7CaaIRV6cDTDJTYalHI/yo8Qhx4POdpon+JhRvNCUBxJ57X2OBPQ6BVrp1vBpf5Bf2yGs6fmu3acpAgh7G1PA==",
+      "path": "syncfusion.sfskinmanager.wpf/19.4.0.38",
+      "hashPath": "syncfusion.sfskinmanager.wpf.19.4.0.38.nupkg.sha512"
+    },
+    "Syncfusion.Shared.WPF/19.4.0.38": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oO3XDGvGkCmdZ33zEDlo+VbPSkgf/kproA13StwawQr+TyKO9lm+rTLPIUcqT2NLp6y+flJLshwS2nl5ThrUaw==",
+      "path": "syncfusion.shared.wpf/19.4.0.38",
+      "hashPath": "syncfusion.shared.wpf.19.4.0.38.nupkg.sha512"
+    },
+    "Syncfusion.Themes.FluentLight.WPF/19.4.0.38": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3Jylz9XEgWBL55U5GflkBDWsldLR6aaiXmAs3uji+OyACaO9RxZOPQmPGKHq4BhvL6xhJgYMx8ebfJ+xOVelqA==",
+      "path": "syncfusion.themes.fluentlight.wpf/19.4.0.38",
+      "hashPath": "syncfusion.themes.fluentlight.wpf.19.4.0.38.nupkg.sha512"
+    },
+    "Syncfusion.Tools.WPF/19.4.0.38": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/0eUxC5yvp5lk4B0qrEtMxNasmKezyjG9dN3rz1//hHohmYx9G0ymcqmz70nSRllkXql761vz4ozNYce/QYV4g==",
+      "path": "syncfusion.tools.wpf/19.4.0.38",
+      "hashPath": "syncfusion.tools.wpf.19.4.0.38.nupkg.sha512"
     },
     "Syncfusion.UI.WPF.NET/19.4.0.38": {
       "type": "package",

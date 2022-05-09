@@ -15,7 +15,12 @@
           "Newtonsoft.Json": "13.0.1",
           "Newtonsoft.Json.Bson": "1.0.2",
           "Ookii.Dialogs.Wpf": "5.0.1",
-          "PropertyTools.Wpf": "3.1.0"
+          "PropertyTools.Wpf": "3.1.0",
+          "Syncfusion.SfSkinManager.WPF": "19.4.0.38",
+          "Syncfusion.Shared.WPF": "19.4.0.38",
+          "Syncfusion.Themes.FluentLight.WPF": "19.4.0.38",
+          "Syncfusion.Tools.WPF": "19.4.0.38",
+          "Syncfusion.UI.WPF.NET": "19.4.0.38"
         },
         "runtime": {
           "ProgramPraca.dll": {}
@@ -204,6 +209,412 @@
           }
         }
       },
+      "Syncfusion.Licensing/19.4.0.38": {
+        "runtime": {
+          "lib/net5.0/Syncfusion.Licensing.dll": {
+            "assemblyVersion": "19.4.0.38",
+            "fileVersion": "19.4.0.38"
+          }
+        }
+      },
+      "Syncfusion.SfSkinManager.WPF/19.4.0.38": {
+        "dependencies": {
+          "Syncfusion.Licensing": "19.4.0.38"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.SfSkinManager.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          }
+        }
+      },
+      "Syncfusion.Shared.WPF/19.4.0.38": {
+        "dependencies": {
+          "Syncfusion.Licensing": "19.4.0.38"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Shared.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          }
+        }
+      },
+      "Syncfusion.Themes.FluentLight.WPF/19.4.0.38": {
+        "dependencies": {
+          "Syncfusion.Licensing": "19.4.0.38",
+          "Syncfusion.SfSkinManager.WPF": "19.4.0.38"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Themes.FluentLight.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          }
+        }
+      },
+      "Syncfusion.Tools.WPF/19.4.0.38": {
+        "dependencies": {
+          "Syncfusion.Licensing": "19.4.0.38",
+          "Syncfusion.Shared.WPF": "19.4.0.38"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Tools.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          }
+        }
+      },
+      "Syncfusion.UI.WPF.NET/19.4.0.38": {
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Calculate.Base.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Compression.Base.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Data.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.DocToPDFConverter.Base.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Edit.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.ExcelChartToImageConverter.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.ExcelToPdfConverter.Base.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Gantt.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Grid.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.GridCommon.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Linq.Base.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.OfficeChart.Base.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.OfficeChartToImageConverter.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.PMML.Base.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Pdf.Base.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.PdfViewer.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.PivotAnalysis.Base.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.PivotAnalysis.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Presentation.Base.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.PresentationToPdfConverter.Base.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.ProjIO.Base.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.PropertyGrid.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfAccordion.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfBarcode.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfBulletGraph.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfBusyIndicator.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfCellGrid.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfChart.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfDiagram.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfDiagramRibbon.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfGauge.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfGrid.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfGridCommon.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfHeatMap.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfHubTile.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfImageEditor.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfInput.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfKanban.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfMaps.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfNavigationDrawer.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfProgressBar.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfRadialMenu.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfRichTextBoxAdv.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfRichTextRibbon.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfSchedule.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfScheduler.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfShared.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfSmithChart.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfSpellChecker.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfSpreadsheet.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfSpreadsheetHelper.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfSunburstChart.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfTextInputLayout.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfTreeMap.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfTreeNavigator.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.SfTreeView.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Shared.WPF.Classic.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.Blend.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.FluentDark.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.Lime.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.MaterialDark.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.MaterialDarkBlue.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.MaterialLight.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.MaterialLightBlue.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.Metro.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.Office2010Black.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.Office2010Blue.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.Office2010Silver.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.Office2013DarkGray.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.Office2013LightGray.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.Office2013White.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.Office2016Colorful.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.Office2016DarkGray.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.Office2016White.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.Office2019Black.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.Office2019Colorful.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.Office2019DarkGray.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.Office2019HighContrast.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.Office2019HighContrastWhite.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.Office2019White.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.Office365.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.Saffron.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.SystemTheme.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.VisualStudio2013.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Themes.VisualStudio2015.WPF.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.Tools.WPF.Classic.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          },
+          "lib/net5.0-windows7.0/Syncfusion.XlsIO.Base.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          }
+        }
+      },
       "System.Buffers/4.5.1": {},
       "System.ComponentModel.Annotations/4.6.0": {},
       "System.Runtime.CompilerServices.Unsafe/5.0.0": {}
@@ -305,6 +716,48 @@
       "sha512": "sha512-XqD4TpfyYGa7QTPzaGlMVbcecKnXy4YmYLDWrU+JIj7IuRNl7DH2END+Ll7ekWIY8o3dAMWLFDE1xdhfIWD1nw==",
       "path": "sharpcompress/0.30.1",
       "hashPath": "sharpcompress.0.30.1.nupkg.sha512"
+    },
+    "Syncfusion.Licensing/19.4.0.38": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aO2/KBA53/uYDAs0cj0HYW+Hf3cYnyZUpo96IaijDoVvS+Vi9N7tEUVvnAbW84aQiJFZD5LOUxoEz18Dw74iAw==",
+      "path": "syncfusion.licensing/19.4.0.38",
+      "hashPath": "syncfusion.licensing.19.4.0.38.nupkg.sha512"
+    },
+    "Syncfusion.SfSkinManager.WPF/19.4.0.38": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Q7CaaIRV6cDTDJTYalHI/yo8Qhx4POdpon+JhRvNCUBxJ57X2OBPQ6BVrp1vBpf5Bf2yGs6fmu3acpAgh7G1PA==",
+      "path": "syncfusion.sfskinmanager.wpf/19.4.0.38",
+      "hashPath": "syncfusion.sfskinmanager.wpf.19.4.0.38.nupkg.sha512"
+    },
+    "Syncfusion.Shared.WPF/19.4.0.38": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oO3XDGvGkCmdZ33zEDlo+VbPSkgf/kproA13StwawQr+TyKO9lm+rTLPIUcqT2NLp6y+flJLshwS2nl5ThrUaw==",
+      "path": "syncfusion.shared.wpf/19.4.0.38",
+      "hashPath": "syncfusion.shared.wpf.19.4.0.38.nupkg.sha512"
+    },
+    "Syncfusion.Themes.FluentLight.WPF/19.4.0.38": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3Jylz9XEgWBL55U5GflkBDWsldLR6aaiXmAs3uji+OyACaO9RxZOPQmPGKHq4BhvL6xhJgYMx8ebfJ+xOVelqA==",
+      "path": "syncfusion.themes.fluentlight.wpf/19.4.0.38",
+      "hashPath": "syncfusion.themes.fluentlight.wpf.19.4.0.38.nupkg.sha512"
+    },
+    "Syncfusion.Tools.WPF/19.4.0.38": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/0eUxC5yvp5lk4B0qrEtMxNasmKezyjG9dN3rz1//hHohmYx9G0ymcqmz70nSRllkXql761vz4ozNYce/QYV4g==",
+      "path": "syncfusion.tools.wpf/19.4.0.38",
+      "hashPath": "syncfusion.tools.wpf.19.4.0.38.nupkg.sha512"
+    },
+    "Syncfusion.UI.WPF.NET/19.4.0.38": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GF4zHxU+0KvsFliIkjoI5I+j75YfeUdC0pJ5gKwnvuiK4icCKdaT4ojmt5THSUjHxb1SarJN/Kn8jw2KhqGJGA==",
+      "path": "syncfusion.ui.wpf.net/19.4.0.38",
+      "hashPath": "syncfusion.ui.wpf.net.19.4.0.38.nupkg.sha512"
     },
     "System.Buffers/4.5.1": {
       "type": "package",

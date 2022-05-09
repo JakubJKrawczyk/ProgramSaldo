@@ -2,7 +2,8 @@
   "runtimeOptions": {
     "additionalProbingPaths": [
       "C:\\Users\\Jakub\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Jakub\\.nuget\\packages"
+      "C:\\Users\\Jakub\\.nuget\\packages",
+      "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\WPF\\19.4.0.38\\ToolboxNuGetPackages"
     ]
   }
 }

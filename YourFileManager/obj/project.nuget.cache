@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8eIXITAw4qejq9GrY9mEmQCV7621M1b4NZ36nwefFBTCXw5lSntZ1wM3THUL7h4NJ+ofB/o2nvg8Dum9CLF4VA==",
+  "dgSpecHash": "RMv/Ud8HncHJaqoVzL3qKV4RboF59i7K1MwKU3d7JK/MpZC8i/z2V7dDGRRwWy2kVbUpRVbBpfi7rcpNPglW6Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jakub\\Desktop\\Aktualne projekty\\YourFileManager\\YourFileManager\\ProgramPraca.csproj",
   "expectedPackageFiles": [
@@ -17,6 +17,11 @@
     "C:\\Users\\Jakub\\.nuget\\packages\\propertytools\\3.1.0\\propertytools.3.1.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\propertytools.wpf\\3.1.0\\propertytools.wpf.3.1.0.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\sharpcompress\\0.30.1\\sharpcompress.0.30.1.nupkg.sha512",
+    "C:\\Users\\Jakub\\.nuget\\packages\\syncfusion.licensing\\19.4.0.38\\syncfusion.licensing.19.4.0.38.nupkg.sha512",
+    "C:\\Users\\Jakub\\.nuget\\packages\\syncfusion.sfskinmanager.wpf\\19.4.0.38\\syncfusion.sfskinmanager.wpf.19.4.0.38.nupkg.sha512",
+    "C:\\Users\\Jakub\\.nuget\\packages\\syncfusion.shared.wpf\\19.4.0.38\\syncfusion.shared.wpf.19.4.0.38.nupkg.sha512",
+    "C:\\Users\\Jakub\\.nuget\\packages\\syncfusion.themes.fluentlight.wpf\\19.4.0.38\\syncfusion.themes.fluentlight.wpf.19.4.0.38.nupkg.sha512",
+    "C:\\Users\\Jakub\\.nuget\\packages\\syncfusion.tools.wpf\\19.4.0.38\\syncfusion.tools.wpf.19.4.0.38.nupkg.sha512",
     "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\WPF\\19.4.0.38\\ToolboxNuGetPackages\\syncfusion.ui.wpf.net\\19.4.0.38\\syncfusion.ui.wpf.net.19.4.0.38.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Jakub\\.nuget\\packages\\system.componentmodel.annotations\\4.6.0\\system.componentmodel.annotations.4.6.0.nupkg.sha512",

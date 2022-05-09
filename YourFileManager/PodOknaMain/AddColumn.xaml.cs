@@ -13,13 +13,15 @@ namespace ProgramPraca.PodOknaMain
     public partial class AddColumn : Window
     {
 
-        public DateTime Date { get; set; }
-        public Dictionary<string,int> ColumnsWithColors { get; set; } = new();
-        public AddColumn(DateTime date)
+        public Dictionary<string,string> ColumnsWithColors { get; set; } = new();
+        IMongoCollection<BsonDocument> collection = Mongo.Database.GetCollection<BsonDocument>($"{Mongo.CollectionName}-{Main.SelectedDate.Year}-{Main.SelectedDate.Month}");
+        IMongoCollection<BsonDocument> collectionColumns = Mongo.Database.GetCollection<BsonDocument>($"columns-{Mongo.CollectionName}-{Main.SelectedDate.Year}-{Main.SelectedDate.Month}");
+
+
+        public AddColumn()
         {
             InitializeComponent();
             ChangeEnumVisibility();
-            Date = date;
 
 
             //combobox of types
@@ -47,7 +49,7 @@ namespace ProgramPraca.PodOknaMain
                 defaultColor.Add("name", "white");
                 defaultColor.Add("value", "#FFFFFF");
                 var colors = Mongo.Database.GetCollection<BsonDocument>("colors");
-                colors.InsertOne(defaultColor);
+                colors.InsertOneAsync(defaultColor);
                 BsonDocument firstColor = colors.Find($"{{}}").FirstOrDefault();
                 if (firstColor != null)
                 {
@@ -59,13 +61,15 @@ namespace ProgramPraca.PodOknaMain
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckBoxIsEnum.IsChecked == false)
+
+
+            if (TextBoxColumnName.Text == "" || TextBoxColumnName.Text == null) { MessageBox.Show("Nazwa kolumny nie może być pusta!"); return; }
+            if (CheckBoxIsEnum.IsChecked == false && CheckBoxIsChecked.IsChecked == false)
             {
-                IMongoCollection<BsonDocument> collection = Mongo.Database.GetCollection<BsonDocument>($"{Mongo.CollectionName}-{Date.Year}-{Date.Month}");
                 UpdateDefinition<BsonDocument> update = Builders<BsonDocument>.Update.Set(TextBoxColumnName.Text, "");
                 BsonDocument column = new();
                 column.Add("columnName", TextBoxColumnName.Text);
-                // column.Add("columnColor", );
+                column.Add("columnType", "string");
                 column.Add("columnOwner", ComboBoxOwnerType.SelectedItem.ToString());
                 if (ListBoxColors.SelectedItem is null)
                 {
@@ -73,56 +77,64 @@ namespace ProgramPraca.PodOknaMain
                 }
                 column.Add("columnColor", ListBoxColors.SelectedItem.ToString());
 
-                collection.UpdateMany($"{{}}", update);
+                collection.UpdateManyAsync($"{{}}", update);
 
-                var collectionColumns = Mongo.Database.GetCollection<BsonDocument>($"columns-{Mongo.CollectionName}-{Date.Year}-{Date.Month}");
-                collectionColumns.InsertOne(column);
+                collectionColumns.InsertOneAsync(column);
                 Mongo.ChangeCount($"{{}}", true, collection);
-                Mongo.FillDataGrid(Date, Main.dt);
+                Mongo.FillDataGrid(Main.SelectedDate, Main.dt);
 
 
 
             }
-            else
+            else if(CheckBoxIsEnum.IsChecked == true)
             {
-                IMongoCollection<BsonDocument> collection = Mongo.Database.GetCollection<BsonDocument>($"{Mongo.CollectionName}-{Date.Year}-{Date.Month}");
+               
+                if(ColumnsWithColors.Count == 0) { MessageBox.Show("Lista opcji pola wyboru nie może być pusta!"); return; }
                 UpdateDefinition<BsonDocument> update = Builders<BsonDocument>.Update.Set(TextBoxColumnName.Text, "");
-                collection.UpdateMany($"{{}}", update);
+                collection.UpdateManyAsync($"{{}}", update);
 
-                var collectionColumns = Mongo.Database.GetCollection<BsonDocument>($"columns-{Mongo.CollectionName}-{Date.Year}-{Date.Month}");
                 string columnEnumValues = "";
-                foreach(var value in ListBoxEnumValues.Items)
+
+                foreach (var element in ColumnsWithColors)
                 {
-                    columnEnumValues += $"{value};";
+                    columnEnumValues += $"{element.Key}:{element.Value};";
                 }
                 BsonDocument column = new();
                 column.Add("columnName", TextBoxColumnName.Text);
+                column.Add("columnType", "enum");
+
                 column.Add("columnOwner", ComboBoxOwnerType.SelectedItem.ToString());
                 column.Add("columnEnumValues", columnEnumValues);
-                if(ListBoxColors.SelectedItem is null)
-                {
-                    ListBoxColors.SelectedItem = ListBoxColors.Items[0];
-                }
-                column.Add("columnColor", ListBoxColors.SelectedItem.ToString());
+                
+                
                 collectionColumns.InsertOneAsync(column);
                 Mongo.ChangeCount($"{{}}", true, collection);
-                Mongo.FillDataGrid(Date, Main.dt);
+                Mongo.FillDataGrid(Main.SelectedDate, Main.dt);
+            }
+            else
+            {
+                UpdateDefinition<BsonDocument> update = Builders<BsonDocument>.Update.Set(TextBoxColumnName.Text, "falsz");
+                collection.UpdateManyAsync($"{{}}", update);
+                BsonDocument column = new();
+                column.Add("columnName", TextBoxColumnName.Text);
+                column.Add("columnType", "check");
+                column.Add("columnOwner", ComboBoxOwnerType.SelectedItem.ToString());
+                collectionColumns.InsertOneAsync(column);
+                Mongo.ChangeCount($"{{}}", true, collection);
+                Mongo.FillDataGrid(Main.SelectedDate, Main.dt);
             }
             
             //Logs
             Logger.AddedColumn = TextBoxColumnName.Text;
             Logger.CreateAction(1);
             //
-            AddColumn w = new(Date);
+            AddColumn w = new();
             w.Show();
             Close();
 
         }
 
-        private void CreateEnum(object selectedItems)
-        {
-
-        }
+       
         private void ChangeEnumVisibility()
         {
             if (CheckBoxIsEnum.IsChecked == false)
@@ -144,8 +156,10 @@ namespace ProgramPraca.PodOknaMain
 
         private void PlusPressed(object sender, RoutedEventArgs e)
         {
-            ListBoxEnumValues.Items.Add(TextBoxNewEnumValue.Text);
-            ColumnsWithColors.Add(TextBoxNewEnumValue.Text, 0);
+            if (ColumnsWithColors.ContainsKey(TextBoxNewEnumValue.Text)) { MessageBox.Show($"Opcja {TextBoxNewEnumValue.Text} już istnieje!"); TextBoxNewEnumValue.Text = ""; return; }
+            string EnumColor = ListBoxColors.SelectedItem == null ? ListBoxColors.Items[0].ToString() : ListBoxColors.SelectedItem.ToString();
+            ListBoxEnumValues.Items.Add($"{TextBoxNewEnumValue.Text}:{EnumColor}");
+            ColumnsWithColors.Add(TextBoxNewEnumValue.Text, EnumColor);
             TextBoxNewEnumValue.Text = "";
             
         }
@@ -159,12 +173,20 @@ namespace ProgramPraca.PodOknaMain
 
         private void CheckBoxIsEnum_Click(object sender, RoutedEventArgs e)
         {
+            CheckBoxIsChecked.IsEnabled = CheckBoxIsEnum.IsChecked == true ? false : true;
             ChangeEnumVisibility();
+            
         }
 
         private void OnSelectChange(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void CheckBoxIsCheck(object sender, RoutedEventArgs e)
+        {
+            CheckBoxIsEnum.IsEnabled = CheckBoxIsChecked.IsChecked == true ? false : true;
+            
         }
     }
 }
