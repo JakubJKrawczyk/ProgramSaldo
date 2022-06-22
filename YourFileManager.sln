@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgramPraca", "YourFileMan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramSaldoTests", "ProgramSaldoTests\ProgramSaldoTests.csproj", "{78ADE4BB-9F68-4CA9-95BA-BF86F1A30211}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperDynamic", "DapperDynamic\DapperDynamic.csproj", "{BD1624E2-B716-4197-B543-70F051DDA921}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperDynamicTests", "DapperDynamicTests\DapperDynamicTests.csproj", "{3F50CC46-C194-47F3-9D06-EEBA59760C5C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{78ADE4BB-9F68-4CA9-95BA-BF86F1A30211}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78ADE4BB-9F68-4CA9-95BA-BF86F1A30211}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78ADE4BB-9F68-4CA9-95BA-BF86F1A30211}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD1624E2-B716-4197-B543-70F051DDA921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD1624E2-B716-4197-B543-70F051DDA921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD1624E2-B716-4197-B543-70F051DDA921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD1624E2-B716-4197-B543-70F051DDA921}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F50CC46-C194-47F3-9D06-EEBA59760C5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F50CC46-C194-47F3-9D06-EEBA59760C5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F50CC46-C194-47F3-9D06-EEBA59760C5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F50CC46-C194-47F3-9D06-EEBA59760C5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

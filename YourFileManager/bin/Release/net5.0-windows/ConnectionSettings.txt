@@ -1,5 +1,0 @@
-SERVER = localhost
-DATABASE = Saldo
-TABLE = klienci
-LOGS_PATH = C:\Users\user\Desktop\ProgramPraca\logs.txt
-BACKUP_PATH = C:\Users\user\Desktop\ProgramPraca
